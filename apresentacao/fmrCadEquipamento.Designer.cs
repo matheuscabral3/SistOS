@@ -36,8 +36,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCadEquip = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.txbEstoque = new System.Windows.Forms.TextBox();
+            this.txbEstoqueDisp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -93,7 +95,7 @@
             // 
             // btnCadEquip
             // 
-            this.btnCadEquip.Location = new System.Drawing.Point(49, 244);
+            this.btnCadEquip.Location = new System.Drawing.Point(97, 213);
             this.btnCadEquip.Name = "btnCadEquip";
             this.btnCadEquip.Size = new System.Drawing.Size(95, 27);
             this.btnCadEquip.TabIndex = 6;
@@ -103,7 +105,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(173, 243);
+            this.btnVoltar.Location = new System.Drawing.Point(212, 245);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(95, 28);
             this.btnVoltar.TabIndex = 7;
@@ -111,12 +113,12 @@
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // txbEstoque
+            // txbEstoqueDisp
             // 
-            this.txbEstoque.Location = new System.Drawing.Point(12, 176);
-            this.txbEstoque.Name = "txbEstoque";
-            this.txbEstoque.Size = new System.Drawing.Size(368, 20);
-            this.txbEstoque.TabIndex = 9;
+            this.txbEstoqueDisp.Location = new System.Drawing.Point(12, 176);
+            this.txbEstoqueDisp.Name = "txbEstoqueDisp";
+            this.txbEstoqueDisp.Size = new System.Drawing.Size(368, 20);
+            this.txbEstoqueDisp.TabIndex = 9;
             // 
             // label4
             // 
@@ -128,13 +130,33 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Estoque Disponível:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(97, 246);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 27);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Alterar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(212, 213);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 27);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Excluir";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // fmrCadEquipamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(439, 284);
-            this.Controls.Add(this.txbEstoque);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txbEstoqueDisp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnCadEquip);
@@ -165,7 +187,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCadEquip;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.TextBox txbEstoque;
+        private System.Windows.Forms.TextBox txbEstoqueDisp;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

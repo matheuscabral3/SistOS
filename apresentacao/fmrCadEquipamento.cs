@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.apresentacao
             try
             {
                 cmd.CommandText = "INSERT INTO tbEquipamentos(nome_equip,modelo,valor_peca) " +
-                "VALUES(" + txbNomeEquip.Text + ", " + txbModelo.Text + ", " + txbPreco.Text + ");";
+                "VALUES(" + txbNomeEquip.Text + ", " + txbModelo.Text + ", " + txbPreco.Text + ", " + txbEstoqueDisp.Text + ");";
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
                 con.desconectar();
@@ -69,7 +69,7 @@ namespace WindowsFormsApp1.apresentacao
         {
             txbNomeEquip.Text = "";
             txbModelo.Text = "";
-            txbEstoque.Text = "";
+            txbEstoqueDisp.Text = "";
             txbPreco.Text = "";
         }
     }
