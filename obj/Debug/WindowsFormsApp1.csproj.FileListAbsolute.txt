@@ -1,0 +1,12 @@
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.cadastreSe.resources
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.apresentacao.ordemServico.resources
+C:\Users\Gamer\Desktop\Faculdade\Eng. Software\project\ProjetoPrincipal\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.apresentacao.telaLogin.resources
