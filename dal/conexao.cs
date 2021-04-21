@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
         public conexao()
         {
             //Endereço da conexão, adicionar o "@" para não dar erro
-            con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gamer\Desktop\Aplicação\TCC2.0\WindowsFormsApp1\RATBanco.mdf;Integrated Security=True";
+            con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gamer\source\repos\Projeto Local SistOS\RATBanco.mdf;Integrated Security=True;Connect Timeout=30";
         }
 
         //1º
