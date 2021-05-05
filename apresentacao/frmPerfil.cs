@@ -229,10 +229,11 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            mensagem = loginDao.excluir(txbEmail.Text);
+            mensagem = loginDao.excluir(txbEmail.Text, txbSenha.Text);
             MessageBox.Show(mensagem, "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            resetForm();
             limpaDatagrid();
+            resetForm();
+            return;
         }
 
         private void validarCombo()

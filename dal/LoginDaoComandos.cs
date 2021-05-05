@@ -90,16 +90,16 @@ namespace WindowsFormsApp1.dal
         }
 
         //MÉTODO EXCLUIR
-        public string excluir(string email)
+        public string excluir(string email, string senha)
         {
             try
             {
-                cmd.CommandText = "DELETE FROM tbUsuarios WHERE usuarios = '" + email + "';";
+                cmd.CommandText = "DELETE FROM tbUsuarios WHERE usuarios = '" + email + "' AND senha = '" + senha + "';";
 
                 cmd.Connection = con.conectar(); //Abrir conexão
                 cmd.ExecuteNonQuery(); //Executar Comando
                 con.desconectar(); //Fechar Conexão
-                this.mensagem = "Excluido com Sucesso !!";
+                this.mensagem = "Registro Excluido com Sucesso !!";
                 tem = true;
             }
             catch (Exception)//Mensagem Erro de Cadastro
