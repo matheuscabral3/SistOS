@@ -90,11 +90,11 @@ namespace WindowsFormsApp1.dal
         }
 
         //MÉTODO EXCLUIR
-        public string excluir(string email, string senha, string confSenha)
+        public string excluir(string email)
         {
             try
             {
-                cmd.CommandText = "DELETE FROM tbUsuarios WHERE email = '" + email + "';";
+                cmd.CommandText = "DELETE FROM tbUsuarios WHERE usuarios = '" + email + "';";
 
                 cmd.Connection = con.conectar(); //Abrir conexão
                 cmd.ExecuteNonQuery(); //Executar Comando
@@ -105,6 +105,26 @@ namespace WindowsFormsApp1.dal
             catch (Exception)//Mensagem Erro de Cadastro
             {
                 this.mensagem = "Erro ao Excluir usuário no Banco de Dados !";
+            }
+            return mensagem; //Retornar mensagem "Cadastrado com sucesso" ou "Erro de Cadastro"
+        }
+        
+        public string alterar(string email, string senha, int permissao, string senhaAntiga)
+        {
+            try
+            {
+
+                cmd.CommandText = "UPDATE tbUsuarios SET usuarios = '" + email + "', senha = '" + senha + "', permissao = " + permissao + " WHERE senha = '" + senhaAntiga + "';" ;
+
+                cmd.Connection = con.conectar(); //Abrir conexão
+                cmd.ExecuteNonQuery(); //Executar Comando
+                con.desconectar(); //Fechar Conexão
+                this.mensagem = "Registro Alterado com Sucesso !!";
+                tem = true;
+            }
+            catch (Exception)//Mensagem Erro de Cadastro
+            {
+                this.mensagem = "Erro ao Alterar usuário no Banco de Dados !";
             }
             return mensagem; //Retornar mensagem "Cadastrado com sucesso" ou "Erro de Cadastro"
         }
