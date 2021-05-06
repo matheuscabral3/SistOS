@@ -38,6 +38,7 @@ C:\Users\Gamer\Desktop\Aplicação\TCC2.0\WindowsFormsApp1\obj\Debug\WindowsForm
 C:\Users\Gamer\source\repos\Projeto Local SistOS\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\Gamer\source\repos\Projeto Local SistOS\bin\Debug\WindowsFormsApp1.exe
 C:\Users\Gamer\source\repos\Projeto Local SistOS\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\ProjetoPrincipal.csprojAssemblyReference.cache
 C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.cadastreSe.resources
 C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmCadCliente.resources
 C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmCadEquipamento.resources

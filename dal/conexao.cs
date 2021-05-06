@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
@@ -14,7 +9,7 @@ namespace WindowsFormsApp1
         public conexao()
         {
             //Endereço da conexão, adicionar o "@" para não dar erro
-            con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gamer\source\repos\Projeto Local SistOS\RATBanco.mdf;Integrated Security=True;Connect Timeout=30";
+            con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gamer\source\repos\Projeto Local SistOS\BD\RATBanco.mdf;Integrated Security=True;Connect Timeout=30";
         }
 
         //1º

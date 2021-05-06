@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsFormsApp1.modelo;
+using System.Threading;
 
 namespace WindowsFormsApp1.apresentacao
 {
     public partial class frmTelaLogin : Form
     {
+        Thread th;
         controle controle = new controle();
         frmMenu frmMenu = new frmMenu();
-        
+
 
         public frmTelaLogin()
         {
@@ -37,8 +39,10 @@ namespace WindowsFormsApp1.apresentacao
                 if (controle.tem) //Se todos os comandos forem Executados
                 {
                     MessageBox.Show("Logado com Sucesso !!", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                    frmMenu.Show(); //Exibir formulário de Ordem de Serviço
+                    this.Close();
+                    th = new Thread(openformMenu);
+                    th.SetApartmentState(ApartmentState.STA);
+                    th.Start();
                 }
                 else//Se não forem, apenas a mensagem de erro.
                 {
@@ -50,6 +54,11 @@ namespace WindowsFormsApp1.apresentacao
                 MessageBox.Show(controle.mensagem);
             }
 
+        }
+
+        private void openformMenu()
+        {
+            Application.Run(new frmMenu());
         }
 
         private void ValidarControles()

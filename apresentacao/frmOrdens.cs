@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace WindowsFormsApp1.apresentacao
 {
     public partial class frmOrdens : Form
     {
+        Thread th;
         conexao con = new conexao();
         SqlCommand cmd = new SqlCommand();
         frmMenu frmMenu = new frmMenu();
+
+
         public frmOrdens()
         {
             InitializeComponent();
@@ -47,12 +44,20 @@ namespace WindowsFormsApp1.apresentacao
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmMenu.Show();
+            th = new Thread(openformMenu);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
         }
+
 
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void openformMenu()
+        {
+            Application.Run(new frmMenu());
         }
     }
 }

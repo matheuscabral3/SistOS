@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading;
 using System.Windows.Forms;
 using WindowsFormsApp1.dal;
-using System.Threading;
 
 namespace WindowsFormsApp1.apresentacao
 {
@@ -147,10 +147,16 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmMenu.Show();
+            this.Close();
+            th = new Thread(openformMenu);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
         }
 
+        private void openformMenu()
+        {
+            Application.Run(new frmMenu());
+        }
 
         private void txbEmail_TextChanged_1(object sender, EventArgs e)
         {
