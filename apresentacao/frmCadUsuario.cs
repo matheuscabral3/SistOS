@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.modelo;
-using WindowsFormsApp1.dal;
 using WindowsFormsApp1.apresentacao;
+using WindowsFormsApp1.modelo;
+using System.Threading;
 
 namespace WindowsFormsApp1
 {
     public partial class cadastreSe : Form
     {
+        Thread th;
         controle controle = new controle();
         frmMenu frmMenu = new frmMenu();
         string mensagem = "";
@@ -28,7 +21,7 @@ namespace WindowsFormsApp1
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
-          //  ValidarControles();
+            //  ValidarControles();
 
             string permissao = cboPermissao.Text.Substring(0, 1);
 
@@ -52,7 +45,16 @@ namespace WindowsFormsApp1
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmMenu.Show();
+            th = new Thread(opennewform);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void opennewform(object obj)
+        {
+
+            Application.Run(new frmTelaLogin());
+
         }
 
         private void cboPermissao_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,6 +63,11 @@ namespace WindowsFormsApp1
         }
 
         private void cadastreSe_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

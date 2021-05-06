@@ -40,10 +40,6 @@
             this.cadastrarEquipamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emitirOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarTécnicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarEquipamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,6 +48,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trocaUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,7 +63,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 359);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(424, 43);
+            this.panel2.Size = new System.Drawing.Size(456, 43);
             this.panel2.TabIndex = 6;
             // 
             // label1
@@ -84,18 +82,19 @@
             this.perfilToolStripMenuItem,
             this.ordemServiçoToolStripMenuItem,
             this.consultaToolStripMenuItem,
-            this.consultarToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(424, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(456, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // perfilToolStripMenuItem
             // 
             this.perfilToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnConsultar});
+            this.btnConsultar,
+            this.trocaUsuárioToolStripMenuItem});
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
             this.perfilToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.perfilToolStripMenuItem.Text = "Usuário";
@@ -103,7 +102,7 @@
             // btnConsultar
             // 
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(101, 22);
+            this.btnConsultar.Size = new System.Drawing.Size(180, 22);
             this.btnConsultar.Text = "Perfil";
             this.btnConsultar.Click += new System.EventHandler(this.exibirPerfilToolStripMenuItem_Click);
             // 
@@ -149,38 +148,9 @@
             // emitirOSToolStripMenuItem
             // 
             this.emitirOSToolStripMenuItem.Name = "emitirOSToolStripMenuItem";
-            this.emitirOSToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.emitirOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.emitirOSToolStripMenuItem.Text = "Emitir O.S.";
             this.emitirOSToolStripMenuItem.Click += new System.EventHandler(this.emitirOSToolStripMenuItem_Click);
-            // 
-            // consultarToolStripMenuItem
-            // 
-            this.consultarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarUsuárioToolStripMenuItem,
-            this.consultarTécnicoToolStripMenuItem,
-            this.consultarEquipamentoToolStripMenuItem});
-            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.consultarToolStripMenuItem.Text = "Consultar";
-            // 
-            // consultarUsuárioToolStripMenuItem
-            // 
-            this.consultarUsuárioToolStripMenuItem.Name = "consultarUsuárioToolStripMenuItem";
-            this.consultarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.consultarUsuárioToolStripMenuItem.Text = "Consultar Clientes";
-            // 
-            // consultarTécnicoToolStripMenuItem
-            // 
-            this.consultarTécnicoToolStripMenuItem.Name = "consultarTécnicoToolStripMenuItem";
-            this.consultarTécnicoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.consultarTécnicoToolStripMenuItem.Text = "Consultar Técnicos";
-            // 
-            // consultarEquipamentoToolStripMenuItem
-            // 
-            this.consultarEquipamentoToolStripMenuItem.Name = "consultarEquipamentoToolStripMenuItem";
-            this.consultarEquipamentoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.consultarEquipamentoToolStripMenuItem.Text = "Consultar Equipamentos";
-            this.consultarEquipamentoToolStripMenuItem.Click += new System.EventHandler(this.consultarEquipamentoToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -202,7 +172,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 44);
+            this.panel1.Size = new System.Drawing.Size(456, 44);
             this.panel1.TabIndex = 5;
             // 
             // label2
@@ -210,7 +180,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label2.Location = new System.Drawing.Point(147, 93);
+            this.label2.Location = new System.Drawing.Point(163, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 21);
             this.label2.TabIndex = 7;
@@ -221,7 +191,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label3.Location = new System.Drawing.Point(118, 126);
+            this.label3.Location = new System.Drawing.Point(134, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 21);
             this.label3.TabIndex = 8;
@@ -253,19 +223,33 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(151, 165);
+            this.pictureBox1.Location = new System.Drawing.Point(167, 163);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(110, 94);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click_1);
+            // 
+            // trocaUsuárioToolStripMenuItem
+            // 
+            this.trocaUsuárioToolStripMenuItem.Name = "trocaUsuárioToolStripMenuItem";
+            this.trocaUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trocaUsuárioToolStripMenuItem.Text = "Troca usuário";
+            this.trocaUsuárioToolStripMenuItem.Click += new System.EventHandler(this.trocaUsuárioToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(424, 402);
+            this.ClientSize = new System.Drawing.Size(456, 402);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -304,8 +288,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrarEquipamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emitirOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarEquipamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
@@ -314,7 +296,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolStripMenuItem consultarTécnicoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarUsuárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trocaUsuárioToolStripMenuItem;
     }
 }

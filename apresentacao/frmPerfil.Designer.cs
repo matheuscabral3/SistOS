@@ -43,12 +43,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.cboPermissao = new System.Windows.Forms.ComboBox();
-            this.exemploDataSet1 = new WindowsFormsApp1.RATBANCODataSet1();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtPerfil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exemploDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtPerfil
@@ -198,11 +196,6 @@
             this.cboPermissao.Size = new System.Drawing.Size(259, 21);
             this.cboPermissao.TabIndex = 22;
             // 
-            // exemploDataSet1
-            // 
-            this.exemploDataSet1.DataSetName = "exemploDataSet1";
-            this.exemploDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(495, 154);
@@ -254,7 +247,6 @@
             this.Load += new System.EventHandler(this.fmrEditarPerfil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtPerfil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exemploDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +269,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnIncluir;
         private System.Windows.Forms.ComboBox cboPermissao;
-        private RATBANCODataSet1 exemploDataSet1;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
     }

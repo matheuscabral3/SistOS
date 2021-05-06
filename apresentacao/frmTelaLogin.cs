@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.modelo;
 
@@ -15,7 +8,7 @@ namespace WindowsFormsApp1.apresentacao
     {
         controle controle = new controle();
         frmMenu frmMenu = new frmMenu();
-        cadastreSe frmCadCliente = new cadastreSe();
+        
 
         public frmTelaLogin()
         {
@@ -24,7 +17,7 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-
+            cadastreSe frmCadCliente = new cadastreSe();
             frmCadCliente.Show();//Mostrar o formulário de Cadastro, quando clicar no botão
         }
 

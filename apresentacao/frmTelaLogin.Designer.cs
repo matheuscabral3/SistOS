@@ -44,7 +44,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(194, 112);
+            this.label1.Location = new System.Drawing.Point(214, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 21);
             this.label1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(194, 183);
+            this.label2.Location = new System.Drawing.Point(210, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 21);
             this.label2.TabIndex = 1;
@@ -62,22 +62,22 @@
             // 
             // txbLogin
             // 
-            this.txbLogin.Location = new System.Drawing.Point(268, 115);
+            this.txbLogin.Location = new System.Drawing.Point(268, 98);
             this.txbLogin.Name = "txbLogin";
-            this.txbLogin.Size = new System.Drawing.Size(153, 20);
+            this.txbLogin.Size = new System.Drawing.Size(186, 20);
             this.txbLogin.TabIndex = 2;
             // 
             // txbSenha
             // 
-            this.txbSenha.Location = new System.Drawing.Point(268, 186);
+            this.txbSenha.Location = new System.Drawing.Point(268, 143);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
-            this.txbSenha.Size = new System.Drawing.Size(153, 20);
+            this.txbSenha.Size = new System.Drawing.Size(186, 20);
             this.txbSenha.TabIndex = 3;
             // 
             // btnAcessar
             // 
-            this.btnAcessar.Location = new System.Drawing.Point(225, 260);
+            this.btnAcessar.Location = new System.Drawing.Point(257, 203);
             this.btnAcessar.Name = "btnAcessar";
             this.btnAcessar.Size = new System.Drawing.Size(75, 23);
             this.btnAcessar.TabIndex = 4;
@@ -87,7 +87,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(321, 260);
+            this.btnSair.Location = new System.Drawing.Point(306, 256);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 5;
@@ -97,7 +97,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(282, 304);
+            this.btnCadastrar.Location = new System.Drawing.Point(355, 203);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrar.TabIndex = 6;
@@ -120,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(479, 359);
+            this.ClientSize = new System.Drawing.Size(479, 322);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnSair);

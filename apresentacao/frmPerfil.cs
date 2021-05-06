@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.dal;
-using WindowsFormsApp1.modelo;
-using WindowsFormsApp1.apresentacao;
+using System.Threading;
 
 namespace WindowsFormsApp1.apresentacao
 {
     public partial class frmPerfil : Form
     {
+        Thread th;
         LoginDaoComandos loginDao = new LoginDaoComandos();
         frmMenu frmMenu = new frmMenu();
         conexao con = new conexao();

@@ -35,18 +35,15 @@ C:\Users\Gamer\Desktop\Aplicação\TCC2.0\WindowsFormsApp1\obj\Debug\ProjetoPrin
 C:\Users\Gamer\Desktop\Aplicação\TCC2.0\WindowsFormsApp1\obj\Debug\ProjetoPrincipal.csproj.CoreCompileInputs.cache
 C:\Users\Gamer\Desktop\Aplicação\TCC2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Gamer\Desktop\Aplicação\TCC2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\Gamer\source\repos\Projeto Local SistOS\bin\Debug\RATBanco.mdf
-C:\Users\Gamer\source\repos\Projeto Local SistOS\bin\Debug\RATBanco_log.ldf
 C:\Users\Gamer\source\repos\Projeto Local SistOS\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\Gamer\source\repos\Projeto Local SistOS\bin\Debug\WindowsFormsApp1.exe
 C:\Users\Gamer\source\repos\Projeto Local SistOS\bin\Debug\WindowsFormsApp1.pdb
-C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\ProjetoPrincipal.csprojAssemblyReference.cache
 C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.cadastreSe.resources
-C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.fmrCadCliente.resources
-C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.fmrCadEquipamento.resources
-C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.fmrCadTecnico.resources
+C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmCadCliente.resources
+C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmCadEquipamento.resources
+C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmCadTecnico.resources
 C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmPerfil.resources
-C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.fmrOrdens.resources
+C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmOrdens.resources
 C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmMenu.resources
 C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.apresentacao.frmTelaLogin.resources
 C:\Users\Gamer\source\repos\Projeto Local SistOS\obj\Debug\WindowsFormsApp1.Properties.Resources.resources

@@ -61,23 +61,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="apresentacao\fmrCadCliente.cs">
+    <Compile Include="apresentacao\frmCadCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="apresentacao\fmrCadCliente.Designer.cs">
-      <DependentUpon>fmrCadCliente.cs</DependentUpon>
+    <Compile Include="apresentacao\frmCadCliente.Designer.cs">
+      <DependentUpon>frmCadCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="apresentacao\fmrCadEquipamento.cs">
+    <Compile Include="apresentacao\frmCadEquipamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="apresentacao\fmrCadEquipamento.Designer.cs">
-      <DependentUpon>fmrCadEquipamento.cs</DependentUpon>
+    <Compile Include="apresentacao\frmCadEquipamento.Designer.cs">
+      <DependentUpon>frmCadEquipamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="apresentacao\fmrCadTecnico.cs">
+    <Compile Include="apresentacao\frmCadTecnico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="apresentacao\fmrCadTecnico.Designer.cs">
-      <DependentUpon>fmrCadTecnico.cs</DependentUpon>
+    <Compile Include="apresentacao\frmCadTecnico.Designer.cs">
+      <DependentUpon>frmCadTecnico.cs</DependentUpon>
     </Compile>
     <Compile Include="apresentacao\frmPerfil.cs">
       <SubType>Form</SubType>
@@ -85,11 +85,11 @@
     <Compile Include="apresentacao\frmPerfil.Designer.cs">
       <DependentUpon>frmPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="apresentacao\fmrOrdens.cs">
+    <Compile Include="apresentacao\frmOrdens.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="apresentacao\fmrOrdens.Designer.cs">
-      <DependentUpon>fmrOrdens.cs</DependentUpon>
+    <Compile Include="apresentacao\frmOrdens.Designer.cs">
+      <DependentUpon>frmOrdens.cs</DependentUpon>
     </Compile>
     <Compile Include="apresentacao\frmMenu.cs">
       <SubType>Form</SubType>
@@ -106,21 +106,11 @@
     <Compile Include="dal\cadastro.cs" />
     <Compile Include="dal\conexao.cs" />
     <Compile Include="dal\LoginDaoComandos.cs" />
-    <Compile Include="RATBANCODataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RATBANCODataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="apresentacao\frmCadUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="apresentacao\frmCadUsuario.Designer.cs">
       <DependentUpon>frmCadUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RATBANCODataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RATBANCODataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="modelo\controle.cs" />
     <Compile Include="Program.cs" />
@@ -128,20 +118,20 @@
     <EmbeddedResource Include="apresentacao\frmCadUsuario.resx">
       <DependentUpon>frmCadUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="apresentacao\fmrCadCliente.resx">
-      <DependentUpon>fmrCadCliente.cs</DependentUpon>
+    <EmbeddedResource Include="apresentacao\frmCadCliente.resx">
+      <DependentUpon>frmCadCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="apresentacao\fmrCadEquipamento.resx">
-      <DependentUpon>fmrCadEquipamento.cs</DependentUpon>
+    <EmbeddedResource Include="apresentacao\frmCadEquipamento.resx">
+      <DependentUpon>frmCadEquipamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="apresentacao\fmrCadTecnico.resx">
-      <DependentUpon>fmrCadTecnico.cs</DependentUpon>
+    <EmbeddedResource Include="apresentacao\frmCadTecnico.resx">
+      <DependentUpon>frmCadTecnico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="apresentacao\frmPerfil.resx">
       <DependentUpon>frmPerfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="apresentacao\fmrOrdens.resx">
-      <DependentUpon>fmrOrdens.cs</DependentUpon>
+    <EmbeddedResource Include="apresentacao\frmOrdens.resx">
+      <DependentUpon>frmOrdens.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="apresentacao\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
@@ -159,28 +149,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="RATBANCODataSet.xsc">
-      <DependentUpon>RATBANCODataSet.xsd</DependentUpon>
-    </None>
-    <None Include="RATBANCODataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RATBANCODataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="RATBANCODataSet.xss">
-      <DependentUpon>RATBANCODataSet.xsd</DependentUpon>
-    </None>
-    <None Include="RATBANCODataSet1.xsc">
-      <DependentUpon>RATBANCODataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="RATBANCODataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RATBANCODataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="RATBANCODataSet1.xss">
-      <DependentUpon>RATBANCODataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -196,15 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\gerente.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="RATBanco.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RATBanco_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>RATBanco.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
