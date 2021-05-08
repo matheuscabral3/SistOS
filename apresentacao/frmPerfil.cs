@@ -19,6 +19,8 @@ namespace WindowsFormsApp1.apresentacao
         SqlDataAdapter da = new SqlDataAdapter();
         public string mensagem = "";
         public string senhaAntiga = "";
+        public string permissao = "";
+        public int aux;
 
         public frmPerfil()
         {
@@ -32,7 +34,7 @@ namespace WindowsFormsApp1.apresentacao
                 if (txbEmail.TextLength > 0)
                 {
                     limpaDatagrid();
-                    string strSQL = "SELECT * FROM tbUsuarios WHERE usuarios ='" + txbEmail.Text + "';";
+                    string strSQL = "SELECT * FROM tbUsuarios WHERE LIKE '%" + txbEmail.Text + "%';";
                     // con.conectar();
                     cmd = new SqlCommand(strSQL, con.conectar());
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -62,6 +64,10 @@ namespace WindowsFormsApp1.apresentacao
         //Método listar o data grid view
         private void btnConsultarTodos()
         {
+            if (da != null)
+            {
+                da = null;
+            }
             try
             {
                 limpaDatagrid();
@@ -109,34 +115,37 @@ namespace WindowsFormsApp1.apresentacao
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limpaDatagrid();
+            resetForm();
         }
 
         private void limpaDatagrid()
         {
-            if (dtPerfil.DataSource != null)
-            {
-                dtPerfil.DataSource = dt;
-                dt.Rows.Clear();
-            }
+            //if (dtPerfil.DataSource != null)
+            //{
+            //    dtPerfil.DataSource = null;
+            //}
+
         }
 
         private void configuraDataGrid()
         {
 
-            //OBRIGATÓRIO - CONFIGURA O HEADER
-            dtPerfil.Columns[0].HeaderText = "Usuários";
-            dtPerfil.Columns[1].HeaderText = "Senha";
-            dtPerfil.Columns[2].HeaderText = "Permissão";
+            ////OBRIGATÓRIO - CONFIGURA O HEADER
+            //dtPerfil.Columns[0].HeaderText = "Usuários";
+            //dtPerfil.Columns[1].HeaderText = "Senha";
+            //dtPerfil.Columns[2].HeaderText = "Permissão";
 
-            //OPCIONAL - Ajuste das Colunas.
-            dtPerfil.Columns[0].Width = 93;
-            dtPerfil.Columns[1].Width = 93;
-            dtPerfil.Columns[2].Width = 93;
+           // OPCIONAL - Ajuste das Colunas.
+            dtPerfil.Columns[0].Width = 165;
+            dtPerfil.Columns[1].Width = 165;
+            dtPerfil.Columns[2].Width = 160;
 
             //OPCIONAL - Exibir Colunas não visíveis.
             // dtPerfil.Columns[0].Visible = false;
-            //  dtPerfil.Columns[1].Visible = false;
-            //  dtPerfil.Columns[2].Visible = false;
+            //dtPerfil.Columns[1].Visible = false;
+            //dtPerfil.Columns[2].Visible = false;
+
+            return;
         }
 
         private void fmrEditarPerfil_Load(object sender, EventArgs e)
@@ -160,6 +169,8 @@ namespace WindowsFormsApp1.apresentacao
 
         private void txbEmail_TextChanged_1(object sender, EventArgs e)
         {
+            txbSenha.Text = "";
+            //cboPermissao.SelectedIndex = cboPermissao.SelectedIndex;
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
@@ -170,6 +181,7 @@ namespace WindowsFormsApp1.apresentacao
             MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             resetForm();
+            return;
         }
 
         private void resetForm()
@@ -215,7 +227,8 @@ namespace WindowsFormsApp1.apresentacao
             }
             else
             {
-                mensagem = loginDao.alterar(txbEmail.Text, txbSenha.Text, cboPermissao.SelectedIndex, senhaAntiga);
+                validarCombo();
+                mensagem = loginDao.alterar(txbEmail.Text, txbSenha.Text, aux, senhaAntiga);
                 MessageBox.Show(mensagem, "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Preencher a tabela com as novas informações após realizar alteração.
@@ -239,14 +252,14 @@ namespace WindowsFormsApp1.apresentacao
         private void validarCombo()
         {
             //É o reponsável por decidir qual PERMISSAO o usuário tem.
-            string permissao = cboPermissao.Text.Substring(0, 1);
+            permissao = cboPermissao.Text.Substring(0, 1);
             if (permissao == "1") //Permissão Gerente
             {
-                cboPermissao.SelectedIndex = 0;
+                aux = 1;
             }
             if (permissao == "2") //Permissão Funcionário
             {
-                cboPermissao.SelectedIndex = 1;
+                aux = 2;
             }
         }
     }

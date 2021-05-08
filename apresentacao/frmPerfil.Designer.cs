@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtPerfil = new System.Windows.Forms.DataGridView();
             this.btnDesconectar = new System.Windows.Forms.Button();
             this.txbEmail = new System.Windows.Forms.TextBox();
@@ -45,8 +46,12 @@
             this.cboPermissao = new System.Windows.Forms.ComboBox();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.rATBancoDataSet = new WindowsFormsApp1.RATBancoDataSet();
+            this.rATBancoDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtPerfil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rATBancoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rATBancoDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dtPerfil
@@ -216,6 +221,16 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // rATBancoDataSet
+            // 
+            this.rATBancoDataSet.DataSetName = "RATBancoDataSet";
+            this.rATBancoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rATBancoDataSetBindingSource
+            // 
+            this.rATBancoDataSetBindingSource.DataSource = this.rATBancoDataSet;
+            this.rATBancoDataSetBindingSource.Position = 0;
+            // 
             // frmPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +262,8 @@
             this.Load += new System.EventHandler(this.fmrEditarPerfil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtPerfil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rATBancoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rATBancoDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +288,7 @@
         private System.Windows.Forms.ComboBox cboPermissao;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.BindingSource rATBancoDataSetBindingSource;
+        private RATBancoDataSet rATBancoDataSet;
     }
 }
