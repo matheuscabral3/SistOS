@@ -120,22 +120,25 @@ namespace WindowsFormsApp1.apresentacao
 
         private void limpaDatagrid()
         {
-            //if (dtPerfil.DataSource != null)
-            //{
-            //    dtPerfil.DataSource = null;
-            //}
-
+            if (dtPerfil.DataSource != null)
+            {
+                dtPerfil.DataSource = null;
+            }
+            if (da != null)
+            {
+                da = null;
+            }
         }
 
         private void configuraDataGrid()
         {
 
             ////OBRIGATÓRIO - CONFIGURA O HEADER
-            //dtPerfil.Columns[0].HeaderText = "Usuários";
-            //dtPerfil.Columns[1].HeaderText = "Senha";
-            //dtPerfil.Columns[2].HeaderText = "Permissão";
+            dtPerfil.Columns[0].HeaderText = "Usuários";
+            dtPerfil.Columns[1].HeaderText = "Senha";
+            dtPerfil.Columns[2].HeaderText = "Permissão";
 
-           // OPCIONAL - Ajuste das Colunas.
+            // OPCIONAL - Ajuste das Colunas.
             dtPerfil.Columns[0].Width = 165;
             dtPerfil.Columns[1].Width = 165;
             dtPerfil.Columns[2].Width = 160;
@@ -236,8 +239,10 @@ namespace WindowsFormsApp1.apresentacao
                 resetForm();
                 return;
             }
-
-            MessageBox.Show(mensagem, "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (mensagem != "")
+            {
+                MessageBox.Show(mensagem, "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

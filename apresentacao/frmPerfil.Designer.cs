@@ -72,7 +72,7 @@
             // 
             this.btnDesconectar.Location = new System.Drawing.Point(495, 338);
             this.btnDesconectar.Name = "btnDesconectar";
-            this.btnDesconectar.Size = new System.Drawing.Size(126, 25);
+            this.btnDesconectar.Size = new System.Drawing.Size(90, 30);
             this.btnDesconectar.TabIndex = 4;
             this.btnDesconectar.Text = "Voltar";
             this.btnDesconectar.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             // 
             this.btnConsultar.Location = new System.Drawing.Point(208, 154);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(96, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(90, 30);
             this.btnConsultar.TabIndex = 10;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -108,9 +108,9 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(286, 339);
+            this.btnLimpar.Location = new System.Drawing.Point(306, 338);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(139, 23);
+            this.btnLimpar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpar.TabIndex = 11;
             this.btnLimpar.Text = "Limpar Tabela";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -184,7 +184,7 @@
             // 
             this.btnIncluir.Location = new System.Drawing.Point(361, 154);
             this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(96, 23);
+            this.btnIncluir.Size = new System.Drawing.Size(90, 30);
             this.btnIncluir.TabIndex = 21;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = true;
@@ -205,7 +205,7 @@
             // 
             this.btnAlterar.Location = new System.Drawing.Point(495, 154);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(96, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(90, 30);
             this.btnAlterar.TabIndex = 25;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -215,7 +215,7 @@
             // 
             this.btnExcluir.Location = new System.Drawing.Point(620, 154);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(96, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(90, 30);
             this.btnExcluir.TabIndex = 26;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;

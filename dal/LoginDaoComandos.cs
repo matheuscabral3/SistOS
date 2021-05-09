@@ -70,7 +70,7 @@ namespace WindowsFormsApp1.dal
                         cmd.ExecuteNonQuery(); //Executar Comando
                         con.desconectar(); //Fechar Conexão
                         this.mensagem = "Funcionário Cadastrado com Sucesso !";
-                        tem = true;
+                        //tem = true;
                     }
                     catch (Exception)//Mensagem Erro de Cadastro
                     {
@@ -96,7 +96,7 @@ namespace WindowsFormsApp1.dal
                 cmd.ExecuteNonQuery(); //Executar Comando
                 con.desconectar(); //Fechar Conexão
                 this.mensagem = "Registro Excluido com Sucesso !!";
-                tem = true;
+                //tem = true;
             }
             catch (Exception)//Mensagem Erro de Cadastro
             {
@@ -104,19 +104,19 @@ namespace WindowsFormsApp1.dal
             }
             return mensagem; //Retornar mensagem "Cadastrado com sucesso" ou "Erro de Cadastro"
         }
-        
+
         public string alterar(string email, string senha, int permissao, string senhaAntiga)
         {
             try
             {
 
-                cmd.CommandText = "UPDATE tbUsuarios SET usuarios = '" + email + "', senha = '" + senha + "', permissao = " + permissao + " WHERE senha = '" + senhaAntiga + "';" ;
+                cmd.CommandText = "UPDATE tbUsuarios SET usuarios = '" + email + "', senha = '" + senha + "', permissao = " + permissao + " WHERE senha = '" + senhaAntiga + "';";
 
                 cmd.Connection = con.conectar(); //Abrir conexão
                 cmd.ExecuteNonQuery(); //Executar Comando
                 con.desconectar(); //Fechar Conexão
                 this.mensagem = "Registro Alterado com Sucesso !!";
-                tem = true;
+                // tem = true;
             }
             catch (Exception)//Mensagem Erro de Cadastro
             {
