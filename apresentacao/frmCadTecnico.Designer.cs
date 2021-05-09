@@ -308,7 +308,7 @@
             this.Name = "frmCadTecnico";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Técnicos";
+            this.Text = "Cadastro de Tecnicos";
             this.Load += new System.EventHandler(this.fmrCadTecnico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtTecnicos)).EndInit();
             this.ResumeLayout(false);

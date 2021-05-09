@@ -64,11 +64,11 @@ namespace WindowsFormsApp1.apresentacao
 
         private void ValidarControles()
         {
-            if (txbNome.Text == "" || txbEmail.Text == "" || txbCidade.Text == "" || txbEnd.Text == "" || txbTEL.Text == "")
+            if (txbNome.Text == "" || txbEmail.Text == "" || txbCidade.Text == "" || txbEnd.Text == "" || txbTEL.Text == "" || txbBairro.Text == "" || txbCargo.Text == "" || txbCPF.Text == "" || txbRG.Text == "")
             {
                 MessageBox.Show("Preencha todos os campos !", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
+        } 
 
         private void openformMenu()
         {
