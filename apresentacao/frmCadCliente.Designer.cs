@@ -40,10 +40,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // exemploDataSet
-            // 
             // 
             // label1
             // 
@@ -59,14 +59,14 @@
             // 
             this.txbNome.Location = new System.Drawing.Point(94, 26);
             this.txbNome.Name = "txbNome";
-            this.txbNome.Size = new System.Drawing.Size(291, 20);
+            this.txbNome.Size = new System.Drawing.Size(245, 20);
             this.txbNome.TabIndex = 1;
             // 
             // txbCidade
             // 
             this.txbCidade.Location = new System.Drawing.Point(94, 61);
             this.txbCidade.Name = "txbCidade";
-            this.txbCidade.Size = new System.Drawing.Size(291, 20);
+            this.txbCidade.Size = new System.Drawing.Size(245, 20);
             this.txbCidade.TabIndex = 3;
             // 
             // label2
@@ -81,16 +81,16 @@
             // 
             // txbEmail
             // 
-            this.txbEmail.Location = new System.Drawing.Point(94, 96);
+            this.txbEmail.Location = new System.Drawing.Point(424, 24);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(291, 20);
+            this.txbEmail.Size = new System.Drawing.Size(245, 20);
             this.txbEmail.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calisto MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 96);
+            this.label3.Location = new System.Drawing.Point(346, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 17);
             this.label3.TabIndex = 4;
@@ -98,16 +98,16 @@
             // 
             // txbEnd
             // 
-            this.txbEnd.Location = new System.Drawing.Point(94, 133);
+            this.txbEnd.Location = new System.Drawing.Point(424, 61);
             this.txbEnd.Name = "txbEnd";
-            this.txbEnd.Size = new System.Drawing.Size(291, 20);
+            this.txbEnd.Size = new System.Drawing.Size(245, 20);
             this.txbEnd.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calisto MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 133);
+            this.label4.Location = new System.Drawing.Point(346, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 17);
             this.label4.TabIndex = 6;
@@ -115,16 +115,16 @@
             // 
             // txbTel
             // 
-            this.txbTel.Location = new System.Drawing.Point(94, 169);
+            this.txbTel.Location = new System.Drawing.Point(94, 101);
             this.txbTel.Name = "txbTel";
-            this.txbTel.Size = new System.Drawing.Size(140, 20);
+            this.txbTel.Size = new System.Drawing.Size(245, 20);
             this.txbTel.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calisto MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 169);
+            this.label5.Location = new System.Drawing.Point(16, 101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 8;
@@ -132,7 +132,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(125, 232);
+            this.btnCadastrar.Location = new System.Drawing.Point(22, 163);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(85, 23);
             this.btnCadastrar.TabIndex = 10;
@@ -142,7 +142,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(259, 232);
+            this.btnVoltar.Location = new System.Drawing.Point(474, 163);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 23);
             this.btnVoltar.TabIndex = 11;
@@ -150,12 +150,42 @@
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // fmrCadCliente
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(136, 163);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(85, 23);
+            this.btnConsultar.TabIndex = 12;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(254, 163);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(85, 23);
+            this.btnAlterar.TabIndex = 13;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(367, 163);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(85, 23);
+            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // frmCadCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(424, 291);
+            this.ClientSize = new System.Drawing.Size(686, 204);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.txbTel);
@@ -169,7 +199,7 @@
             this.Controls.Add(this.txbNome);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "fmrCadCliente";
+            this.Name = "frmCadCliente";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Clientes";
@@ -193,5 +223,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

@@ -55,7 +55,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(240, 154);
+            this.btnCadastrar.Location = new System.Drawing.Point(256, 138);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(126, 31);
             this.btnCadastrar.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             this.txbLogin.Location = new System.Drawing.Point(192, 40);
             this.txbLogin.Name = "txbLogin";
-            this.txbLogin.Size = new System.Drawing.Size(199, 20);
+            this.txbLogin.Size = new System.Drawing.Size(175, 20);
             this.txbLogin.TabIndex = 2;
             // 
             // txbSenha
@@ -75,7 +75,7 @@
             this.txbSenha.Location = new System.Drawing.Point(192, 97);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
-            this.txbSenha.Size = new System.Drawing.Size(199, 20);
+            this.txbSenha.Size = new System.Drawing.Size(175, 20);
             this.txbSenha.TabIndex = 4;
             // 
             // label2
@@ -91,17 +91,17 @@
             // 
             // txbConfSenha
             // 
-            this.txbConfSenha.Location = new System.Drawing.Point(424, 40);
+            this.txbConfSenha.Location = new System.Drawing.Point(392, 40);
             this.txbConfSenha.Name = "txbConfSenha";
             this.txbConfSenha.PasswordChar = '*';
-            this.txbConfSenha.Size = new System.Drawing.Size(224, 20);
+            this.txbConfSenha.Size = new System.Drawing.Size(188, 20);
             this.txbConfSenha.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(420, 18);
+            this.label3.Location = new System.Drawing.Point(388, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 19);
             this.label3.TabIndex = 6;
@@ -110,7 +110,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 66);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 130);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -119,7 +119,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(466, 154);
+            this.btnVoltar.Location = new System.Drawing.Point(420, 138);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(126, 31);
             this.btnVoltar.TabIndex = 9;
@@ -131,7 +131,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(421, 77);
+            this.label4.Location = new System.Drawing.Point(389, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(232, 17);
             this.label4.TabIndex = 10;
@@ -143,9 +143,9 @@
             this.cboPermissao.Items.AddRange(new object[] {
             "1 - Gerente",
             "2 - Funcionário"});
-            this.cboPermissao.Location = new System.Drawing.Point(424, 97);
+            this.cboPermissao.Location = new System.Drawing.Point(392, 97);
             this.cboPermissao.Name = "cboPermissao";
-            this.cboPermissao.Size = new System.Drawing.Size(224, 21);
+            this.cboPermissao.Size = new System.Drawing.Size(188, 21);
             this.cboPermissao.TabIndex = 12;
             this.cboPermissao.SelectedIndexChanged += new System.EventHandler(this.cboPermissao_SelectedIndexChanged);
             // 
@@ -154,7 +154,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(660, 235);
+            this.ClientSize = new System.Drawing.Size(623, 198);
             this.Controls.Add(this.cboPermissao);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnVoltar);
