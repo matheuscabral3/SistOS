@@ -55,6 +55,7 @@
             // 
             // txbNomeEquip
             // 
+            this.txbNomeEquip.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbNomeEquip.Location = new System.Drawing.Point(12, 37);
             this.txbNomeEquip.Name = "txbNomeEquip";
             this.txbNomeEquip.Size = new System.Drawing.Size(249, 20);
@@ -62,6 +63,7 @@
             // 
             // txbModelo
             // 
+            this.txbModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbModelo.Location = new System.Drawing.Point(281, 37);
             this.txbModelo.Name = "txbModelo";
             this.txbModelo.Size = new System.Drawing.Size(249, 20);
@@ -79,6 +81,7 @@
             // 
             // txbPreco
             // 
+            this.txbPreco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbPreco.Location = new System.Drawing.Point(12, 92);
             this.txbPreco.Name = "txbPreco";
             this.txbPreco.Size = new System.Drawing.Size(249, 20);
@@ -98,7 +101,7 @@
             // 
             this.btnCadEquip.Location = new System.Drawing.Point(116, 132);
             this.btnCadEquip.Name = "btnCadEquip";
-            this.btnCadEquip.Size = new System.Drawing.Size(95, 27);
+            this.btnCadEquip.Size = new System.Drawing.Size(90, 30);
             this.btnCadEquip.TabIndex = 6;
             this.btnCadEquip.Text = "Incluir";
             this.btnCadEquip.UseVisualStyleBackColor = true;
@@ -108,7 +111,7 @@
             // 
             this.btnVoltar.Location = new System.Drawing.Point(419, 132);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(95, 28);
+            this.btnVoltar.Size = new System.Drawing.Size(90, 30);
             this.btnVoltar.TabIndex = 7;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -116,6 +119,7 @@
             // 
             // txbEstoqueDisp
             // 
+            this.txbEstoqueDisp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEstoqueDisp.Location = new System.Drawing.Point(281, 92);
             this.txbEstoqueDisp.Name = "txbEstoqueDisp";
             this.txbEstoqueDisp.Size = new System.Drawing.Size(249, 20);
@@ -135,7 +139,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(217, 132);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 27);
+            this.button1.Size = new System.Drawing.Size(90, 30);
             this.button1.TabIndex = 10;
             this.button1.Text = "Alterar";
             this.button1.UseVisualStyleBackColor = true;
@@ -144,7 +148,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(318, 132);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 27);
+            this.button2.Size = new System.Drawing.Size(90, 30);
             this.button2.TabIndex = 11;
             this.button2.Text = "Excluir";
             this.button2.UseVisualStyleBackColor = true;
@@ -153,7 +157,7 @@
             // 
             this.btnConsultar.Location = new System.Drawing.Point(15, 132);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(95, 27);
+            this.btnConsultar.Size = new System.Drawing.Size(90, 30);
             this.btnConsultar.TabIndex = 12;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -163,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(547, 179);
+            this.ClientSize = new System.Drawing.Size(769, 381);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

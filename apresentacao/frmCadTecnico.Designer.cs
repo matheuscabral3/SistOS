@@ -77,6 +77,7 @@
             // 
             // txbNome
             // 
+            this.txbNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbNome.Location = new System.Drawing.Point(33, 38);
             this.txbNome.MaxLength = 50;
             this.txbNome.Name = "txbNome";
@@ -95,6 +96,7 @@
             // 
             // txbEmail
             // 
+            this.txbEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEmail.Location = new System.Drawing.Point(33, 93);
             this.txbEmail.MaxLength = 50;
             this.txbEmail.Name = "txbEmail";
@@ -113,6 +115,7 @@
             // 
             // txbCidade
             // 
+            this.txbCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbCidade.Location = new System.Drawing.Point(353, 93);
             this.txbCidade.MaxLength = 50;
             this.txbCidade.Name = "txbCidade";
@@ -131,6 +134,7 @@
             // 
             // txbEnd
             // 
+            this.txbEnd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEnd.Location = new System.Drawing.Point(33, 153);
             this.txbEnd.MaxLength = 50;
             this.txbEnd.Name = "txbEnd";
@@ -159,6 +163,7 @@
             // 
             // txbBairro
             // 
+            this.txbBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbBairro.Location = new System.Drawing.Point(353, 153);
             this.txbBairro.MaxLength = 50;
             this.txbBairro.Name = "txbBairro";
@@ -236,6 +241,7 @@
             // 
             // txbCargo
             // 
+            this.txbCargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbCargo.Location = new System.Drawing.Point(33, 211);
             this.txbCargo.MaxLength = 50;
             this.txbCargo.Name = "txbCargo";
@@ -244,6 +250,7 @@
             // 
             // txbRG
             // 
+            this.txbRG.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbRG.Location = new System.Drawing.Point(419, 211);
             this.txbRG.MaxLength = 11;
             this.txbRG.Name = "txbRG";
@@ -260,6 +267,7 @@
             // 
             // txbCPF
             // 
+            this.txbCPF.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbCPF.Location = new System.Drawing.Point(243, 211);
             this.txbCPF.MaxLength = 14;
             this.txbCPF.Name = "txbCPF";
@@ -268,6 +276,7 @@
             // 
             // txbTEL
             // 
+            this.txbTEL.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbTEL.Location = new System.Drawing.Point(353, 38);
             this.txbTEL.MaxLength = 11;
             this.txbTEL.Name = "txbTEL";
@@ -279,7 +288,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(594, 437);
+            this.ClientSize = new System.Drawing.Size(594, 436);
             this.Controls.Add(this.txbTEL);
             this.Controls.Add(this.txbCPF);
             this.Controls.Add(this.dtTecnicos);

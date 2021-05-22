@@ -57,6 +57,7 @@
             // 
             // txbNome
             // 
+            this.txbNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbNome.Location = new System.Drawing.Point(94, 26);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(245, 20);
@@ -64,6 +65,7 @@
             // 
             // txbCidade
             // 
+            this.txbCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbCidade.Location = new System.Drawing.Point(94, 61);
             this.txbCidade.Name = "txbCidade";
             this.txbCidade.Size = new System.Drawing.Size(245, 20);
@@ -81,6 +83,7 @@
             // 
             // txbEmail
             // 
+            this.txbEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEmail.Location = new System.Drawing.Point(424, 24);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(245, 20);
@@ -98,6 +101,7 @@
             // 
             // txbEnd
             // 
+            this.txbEnd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEnd.Location = new System.Drawing.Point(424, 61);
             this.txbEnd.Name = "txbEnd";
             this.txbEnd.Size = new System.Drawing.Size(245, 20);
@@ -115,6 +119,7 @@
             // 
             // txbTel
             // 
+            this.txbTel.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbTel.Location = new System.Drawing.Point(94, 101);
             this.txbTel.Name = "txbTel";
             this.txbTel.Size = new System.Drawing.Size(245, 20);
@@ -132,9 +137,9 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(22, 163);
+            this.btnCadastrar.Location = new System.Drawing.Point(69, 147);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(85, 23);
+            this.btnCadastrar.Size = new System.Drawing.Size(90, 30);
             this.btnCadastrar.TabIndex = 10;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -142,9 +147,9 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(474, 163);
+            this.btnVoltar.Location = new System.Drawing.Point(521, 147);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(90, 30);
             this.btnVoltar.TabIndex = 11;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -152,27 +157,27 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(136, 163);
+            this.btnConsultar.Location = new System.Drawing.Point(183, 147);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(85, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(90, 30);
             this.btnConsultar.TabIndex = 12;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(254, 163);
+            this.btnAlterar.Location = new System.Drawing.Point(301, 147);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(85, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(90, 30);
             this.btnAlterar.TabIndex = 13;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(367, 163);
+            this.btnExcluir.Location = new System.Drawing.Point(414, 147);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(85, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(90, 30);
             this.btnExcluir.TabIndex = 14;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -182,7 +187,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(686, 204);
+            this.ClientSize = new System.Drawing.Size(769, 381);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnConsultar);

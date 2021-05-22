@@ -61,10 +61,10 @@
             this.dtPerfil.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtPerfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtPerfil.GridColor = System.Drawing.SystemColors.Control;
-            this.dtPerfil.Location = new System.Drawing.Point(208, 215);
+            this.dtPerfil.Location = new System.Drawing.Point(210, 215);
             this.dtPerfil.Name = "dtPerfil";
             this.dtPerfil.ReadOnly = true;
-            this.dtPerfil.Size = new System.Drawing.Size(546, 106);
+            this.dtPerfil.Size = new System.Drawing.Size(530, 110);
             this.dtPerfil.TabIndex = 0;
             this.dtPerfil.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgPerfil_CellContentClick);
             // 
@@ -80,6 +80,7 @@
             // 
             // txbEmail
             // 
+            this.txbEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEmail.Location = new System.Drawing.Point(208, 63);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(546, 20);
@@ -98,7 +99,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(208, 154);
+            this.btnConsultar.Location = new System.Drawing.Point(222, 154);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(90, 30);
             this.btnConsultar.TabIndex = 10;
@@ -120,7 +121,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Castellar", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(58, 92);
+            this.label2.Location = new System.Drawing.Point(65, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 23);
             this.label2.TabIndex = 12;
@@ -129,7 +130,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.gerente;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 129);
+            this.pictureBox1.Location = new System.Drawing.Point(25, 130);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 114);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -138,6 +139,7 @@
             // 
             // txbSenha
             // 
+            this.txbSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbSenha.Location = new System.Drawing.Point(495, 108);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.Size = new System.Drawing.Size(259, 20);
@@ -182,7 +184,7 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.Location = new System.Drawing.Point(361, 154);
+            this.btnIncluir.Location = new System.Drawing.Point(356, 154);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(90, 30);
             this.btnIncluir.TabIndex = 21;
@@ -194,8 +196,8 @@
             // 
             this.cboPermissao.FormattingEnabled = true;
             this.cboPermissao.Items.AddRange(new object[] {
-            "1 - Gerente",
-            "2 - Funcionário"});
+            "1 - GERENTE",
+            "2 - FUNCIONÁRIO"});
             this.cboPermissao.Location = new System.Drawing.Point(208, 108);
             this.cboPermissao.Name = "cboPermissao";
             this.cboPermissao.Size = new System.Drawing.Size(259, 21);
@@ -236,7 +238,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(770, 380);
+            this.ClientSize = new System.Drawing.Size(769, 381);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.cboPermissao);

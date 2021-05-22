@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Threading;
 using System.Windows.Forms;
 using WindowsFormsApp1.dal;
+using WindowsFormsApp1.modelo;
 
 namespace WindowsFormsApp1.apresentacao
 {
@@ -11,6 +12,7 @@ namespace WindowsFormsApp1.apresentacao
     {
         Thread th;
         LoginDaoComandos loginDao = new LoginDaoComandos();
+        controle controle = new controle();
         frmMenu frmMenu = new frmMenu();
         conexao con = new conexao();
         SqlCommand cmd = new SqlCommand();
@@ -29,19 +31,22 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+
+            limpaDatagrid();
+
             try
             {
                 if (txbEmail.TextLength > 0)
                 {
-                    limpaDatagrid();
-                    string strSQL = "SELECT * FROM tbUsuarios WHERE LIKE '%" + txbEmail.Text + "%';";
-                    // con.conectar();
+                    string strSQL = "SELECT * FROM tbUsuarios " +
+                        "WHERE usuarios LIKE '%" + txbEmail.Text + "%';";
                     cmd = new SqlCommand(strSQL, con.conectar());
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
                     dtPerfil.DataSource = dt;
-                    configuraDataGrid();
+                    //configuraDataGrid();
                     con.desconectar();
+                    return;
                 }
 
                 if (txbEmail.Text == "" && txbSenha.Text == "")
@@ -59,33 +64,40 @@ namespace WindowsFormsApp1.apresentacao
             {
                 MessageBox.Show("Erro ao Preencher a Tabela !");
             }
+
         }
 
-        //Método listar o data grid view
+
+        //---------------------------------
+        //MÉTODO PARA CONSULTAR
+        //---------------------------------
         private void btnConsultarTodos()
         {
-            if (da != null)
-            {
-                da = null;
-            }
+
+            limpaDatagrid();
+
             try
             {
-                limpaDatagrid();
                 string strSQL = "SELECT * FROM tbUsuarios";
-                // con.conectar();
                 cmd = new SqlCommand(strSQL, con.conectar());
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 dtPerfil.DataSource = dt;
-                configuraDataGrid();
+                //configuraDataGrid();
                 con.desconectar();
             }
             catch
             {
                 MessageBox.Show("Erro ao Preencher a Tabela !");
             }
+
+
         }
 
+
+        //---------------------------------
+        //MÉTODO CLICK
+        //---------------------------------
         private void dvgPerfil_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //LÓGICA (Obter o DataGrid > Selecionar a Coluna > Preencher a TextBox)
@@ -112,51 +124,44 @@ namespace WindowsFormsApp1.apresentacao
             }
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            limpaDatagrid();
-            resetForm();
-        }
 
-        private void limpaDatagrid()
-        {
-            if (dtPerfil.DataSource != null)
-            {
-                dtPerfil.DataSource = null;
-            }
-            if (da != null)
-            {
-                da = null;
-            }
-        }
-
+        //---------------------------------
+        //MÉTODO PARA CONFIGURAR O DATAGRIDVIEW
+        //---------------------------------
         private void configuraDataGrid()
         {
 
             ////OBRIGATÓRIO - CONFIGURA O HEADER
-            dtPerfil.Columns[0].HeaderText = "Usuários";
-            dtPerfil.Columns[1].HeaderText = "Senha";
-            dtPerfil.Columns[2].HeaderText = "Permissão";
+            //dtPerfil.Columns[0].HeaderText = "Usuários";
+            //dtPerfil.Columns[1].HeaderText = "Senha";
+            //dtPerfil.Columns[2].HeaderText = "Permissão";
 
-            // OPCIONAL - Ajuste das Colunas.
-            dtPerfil.Columns[0].Width = 165;
-            dtPerfil.Columns[1].Width = 165;
-            dtPerfil.Columns[2].Width = 160;
+            //// OPCIONAL - Ajuste das Colunas.
+            //dtPerfil.Columns[0].Width = 165;
+            //dtPerfil.Columns[1].Width = 165;
+            //dtPerfil.Columns[2].Width = 160;
 
             //OPCIONAL - Exibir Colunas não visíveis.
             // dtPerfil.Columns[0].Visible = false;
             //dtPerfil.Columns[1].Visible = false;
             //dtPerfil.Columns[2].Visible = false;
 
-            return;
+            //return;
         }
 
+
+        //---------------------------------
+        //MÉTODO LOAD
+        //---------------------------------
         private void fmrEditarPerfil_Load(object sender, EventArgs e)
         {
-            limpaDatagrid();
             resetForm();
         }
 
+
+        //---------------------------------
+        //MÉTODO RETORNAR
+        //---------------------------------
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -165,28 +170,50 @@ namespace WindowsFormsApp1.apresentacao
             th.Start();
         }
 
+        //---------------------------------
+        //MÉTODO PARA ABRIR O NOVO FORM
+        //---------------------------------
         private void openformMenu()
         {
             Application.Run(new frmMenu());
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA ATUALIZAR CAIXA DE TEXTO
+        //---------------------------------
         private void txbEmail_TextChanged_1(object sender, EventArgs e)
         {
             txbSenha.Text = "";
             //cboPermissao.SelectedIndex = cboPermissao.SelectedIndex;
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA INCLUIR
+        //---------------------------------
         private void btnIncluir_Click(object sender, EventArgs e)
         {
+            //VERIFICAR SE U USUÁRIO JÁ EXISTE, ANTES DE REALIZAR A INCLUSÃO
+            bool usuarioExiste = loginDao.verificarLogin(txbEmail.Text, "");//Método verificarLogin da classe LoginDaoComandos
+            if (usuarioExiste == true)
+            {
+                this.mensagem = "Este usuário já existe !";
+                MessageBox.Show(mensagem, "Já Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                return;
+            }
 
             ValidarForm();
-
             MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             resetForm();
             return;
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA RESETAR
+        //---------------------------------
         private void resetForm()
         {
             txbEmail.Text = "";
@@ -196,6 +223,10 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
+
+        //---------------------------------
+        //MÉTODO PARA VALIDAR
+        //---------------------------------
         private void ValidarForm()
         {
             if (txbEmail.Text == "")
@@ -218,10 +249,15 @@ namespace WindowsFormsApp1.apresentacao
 
             //VALIDAR COMBO.
             validarCombo();
-            int auxPermissao = Convert.ToInt32(cboPermissao.SelectedIndex);
-            mensagem = loginDao.cadastrar(txbEmail.Text, txbSenha.Text, null, auxPermissao);
+            int auxPermissao = aux;
+            string auxSenha = txbSenha.Text;
+            mensagem = loginDao.cadastrar(txbEmail.Text, txbSenha.Text, auxSenha, auxPermissao);
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA ALTERAR
+        //---------------------------------
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (txbEmail.TextLength < 0 || txbSenha.TextLength < 0 || cboPermissao.SelectedIndex < 0)
@@ -245,6 +281,10 @@ namespace WindowsFormsApp1.apresentacao
             }
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA EXCLUIR
+        //---------------------------------
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             mensagem = loginDao.excluir(txbEmail.Text, txbSenha.Text);
@@ -254,6 +294,10 @@ namespace WindowsFormsApp1.apresentacao
             return;
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA VALIDAR COMBO
+        //---------------------------------
         private void validarCombo()
         {
             //É o reponsável por decidir qual PERMISSAO o usuário tem.
@@ -267,5 +311,42 @@ namespace WindowsFormsApp1.apresentacao
                 aux = 2;
             }
         }
+
+
+
+        //---------------------------------
+        //MÉTODO PARA LIMPAR O DATAGRIDVIEW
+        //---------------------------------
+        private void limpaDatagrid()
+        {
+            if (dtPerfil.DataSource != null)
+            {
+                int numRows = dtPerfil.Rows.Count;
+                for (int i = 0; i < numRows; i++)
+                {
+                    try
+                    {
+                        int max = dtPerfil.Rows.Count - 1;
+                        dtPerfil.Rows.Remove(dtPerfil.Rows[max]);
+
+                    }
+                    catch (Exception exe)
+                    {
+                        MessageBox.Show("Erro ao Limpar Tabela" + exe, "WTF", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
+            dtPerfil.DataSource = null;
+            dtPerfil.Refresh();
+            return;
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpaDatagrid();
+            resetForm();
+        }
+
     }
 }

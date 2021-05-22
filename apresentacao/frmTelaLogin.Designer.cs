@@ -62,6 +62,7 @@
             // 
             // txbLogin
             // 
+            this.txbLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbLogin.Location = new System.Drawing.Point(268, 98);
             this.txbLogin.Name = "txbLogin";
             this.txbLogin.Size = new System.Drawing.Size(186, 20);
@@ -69,6 +70,7 @@
             // 
             // txbSenha
             // 
+            this.txbSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbSenha.Location = new System.Drawing.Point(268, 143);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
@@ -79,7 +81,7 @@
             // 
             this.btnAcessar.Location = new System.Drawing.Point(257, 203);
             this.btnAcessar.Name = "btnAcessar";
-            this.btnAcessar.Size = new System.Drawing.Size(75, 23);
+            this.btnAcessar.Size = new System.Drawing.Size(90, 30);
             this.btnAcessar.TabIndex = 4;
             this.btnAcessar.Text = "Acessar";
             this.btnAcessar.UseVisualStyleBackColor = false;
@@ -89,7 +91,7 @@
             // 
             this.btnSair.Location = new System.Drawing.Point(306, 256);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.Size = new System.Drawing.Size(90, 30);
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
@@ -99,7 +101,7 @@
             // 
             this.btnCadastrar.Location = new System.Drawing.Point(355, 203);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCadastrar.Size = new System.Drawing.Size(90, 30);
             this.btnCadastrar.TabIndex = 6;
             this.btnCadastrar.Text = "Cadastrar-se";
             this.btnCadastrar.UseVisualStyleBackColor = false;
@@ -120,7 +122,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(479, 322);
+            this.ClientSize = new System.Drawing.Size(550, 350);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnSair);
