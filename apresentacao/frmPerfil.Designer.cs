@@ -58,10 +58,14 @@
             // 
             this.dtPerfil.AllowUserToAddRows = false;
             this.dtPerfil.AllowUserToDeleteRows = false;
+            this.dtPerfil.AllowUserToResizeColumns = false;
+            this.dtPerfil.AllowUserToResizeRows = false;
+            this.dtPerfil.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtPerfil.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtPerfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtPerfil.GridColor = System.Drawing.SystemColors.Control;
-            this.dtPerfil.Location = new System.Drawing.Point(210, 215);
+            this.dtPerfil.Location = new System.Drawing.Point(208, 242);
+            this.dtPerfil.MultiSelect = false;
             this.dtPerfil.Name = "dtPerfil";
             this.dtPerfil.ReadOnly = true;
             this.dtPerfil.Size = new System.Drawing.Size(530, 110);
@@ -70,7 +74,7 @@
             // 
             // btnDesconectar
             // 
-            this.btnDesconectar.Location = new System.Drawing.Point(495, 338);
+            this.btnDesconectar.Location = new System.Drawing.Point(495, 370);
             this.btnDesconectar.Name = "btnDesconectar";
             this.btnDesconectar.Size = new System.Drawing.Size(90, 30);
             this.btnDesconectar.TabIndex = 4;
@@ -99,7 +103,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(222, 154);
+            this.btnConsultar.Location = new System.Drawing.Point(224, 169);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(90, 30);
             this.btnConsultar.TabIndex = 10;
@@ -109,7 +113,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(306, 338);
+            this.btnLimpar.Location = new System.Drawing.Point(306, 370);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpar.TabIndex = 11;
@@ -176,7 +180,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(205, 196);
+            this.label6.Location = new System.Drawing.Point(205, 216);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 16);
             this.label6.TabIndex = 19;
@@ -184,7 +188,7 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.Location = new System.Drawing.Point(356, 154);
+            this.btnIncluir.Location = new System.Drawing.Point(358, 169);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(90, 30);
             this.btnIncluir.TabIndex = 21;
@@ -205,7 +209,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(495, 154);
+            this.btnAlterar.Location = new System.Drawing.Point(497, 169);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(90, 30);
             this.btnAlterar.TabIndex = 25;
@@ -215,7 +219,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(620, 154);
+            this.btnExcluir.Location = new System.Drawing.Point(622, 169);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(90, 30);
             this.btnExcluir.TabIndex = 26;
@@ -238,7 +242,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(769, 381);
+            this.ClientSize = new System.Drawing.Size(769, 412);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.cboPermissao);
@@ -272,8 +276,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dtPerfil;
         private System.Windows.Forms.Button btnDesconectar;
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.Label label1;
@@ -292,5 +294,6 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.BindingSource rATBancoDataSetBindingSource;
         private RATBancoDataSet rATBancoDataSet;
+        private System.Windows.Forms.DataGridView dtPerfil;
     }
 }

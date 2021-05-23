@@ -44,7 +44,6 @@ namespace WindowsFormsApp1.apresentacao
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
                     dtPerfil.DataSource = dt;
-                    //configuraDataGrid();
                     con.desconectar();
                     return;
                 }
@@ -83,7 +82,6 @@ namespace WindowsFormsApp1.apresentacao
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 dtPerfil.DataSource = dt;
-                //configuraDataGrid();
                 con.desconectar();
             }
             catch
@@ -123,32 +121,6 @@ namespace WindowsFormsApp1.apresentacao
                 }
             }
         }
-
-
-        //---------------------------------
-        //MÉTODO PARA CONFIGURAR O DATAGRIDVIEW
-        //---------------------------------
-        private void configuraDataGrid()
-        {
-
-            ////OBRIGATÓRIO - CONFIGURA O HEADER
-            //dtPerfil.Columns[0].HeaderText = "Usuários";
-            //dtPerfil.Columns[1].HeaderText = "Senha";
-            //dtPerfil.Columns[2].HeaderText = "Permissão";
-
-            //// OPCIONAL - Ajuste das Colunas.
-            //dtPerfil.Columns[0].Width = 165;
-            //dtPerfil.Columns[1].Width = 165;
-            //dtPerfil.Columns[2].Width = 160;
-
-            //OPCIONAL - Exibir Colunas não visíveis.
-            // dtPerfil.Columns[0].Visible = false;
-            //dtPerfil.Columns[1].Visible = false;
-            //dtPerfil.Columns[2].Visible = false;
-
-            //return;
-        }
-
 
         //---------------------------------
         //MÉTODO LOAD
