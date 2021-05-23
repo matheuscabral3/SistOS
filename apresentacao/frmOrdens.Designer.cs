@@ -55,7 +55,7 @@
             // 
             this.btnSalvar.Location = new System.Drawing.Point(110, 328);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(90, 30);
             this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar O.S";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -65,7 +65,7 @@
             // 
             this.btnImprimir.Location = new System.Drawing.Point(265, 328);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
             this.btnImprimir.TabIndex = 1;
             this.btnImprimir.Text = "Imprimir O.S";
             this.btnImprimir.UseVisualStyleBackColor = true;
@@ -82,6 +82,7 @@
             // 
             // txbNomeCliente
             // 
+            this.txbNomeCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbNomeCliente.Location = new System.Drawing.Point(100, 33);
             this.txbNomeCliente.Name = "txbNomeCliente";
             this.txbNomeCliente.Size = new System.Drawing.Size(198, 20);
@@ -89,6 +90,7 @@
             // 
             // txbEquip
             // 
+            this.txbEquip.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEquip.Location = new System.Drawing.Point(411, 33);
             this.txbEquip.Name = "txbEquip";
             this.txbEquip.Size = new System.Drawing.Size(217, 20);
@@ -106,6 +108,7 @@
             // 
             // txbNomeTec
             // 
+            this.txbNomeTec.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbNomeTec.Location = new System.Drawing.Point(100, 80);
             this.txbNomeTec.Name = "txbNomeTec";
             this.txbNomeTec.Size = new System.Drawing.Size(198, 20);
@@ -138,6 +141,7 @@
             // 
             // txbObs
             // 
+            this.txbObs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbObs.Location = new System.Drawing.Point(25, 143);
             this.txbObs.Multiline = true;
             this.txbObs.Name = "txbObs";
@@ -175,6 +179,7 @@
             // 
             // txbOrcamento
             // 
+            this.txbOrcamento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbOrcamento.Location = new System.Drawing.Point(100, 232);
             this.txbOrcamento.Name = "txbOrcamento";
             this.txbOrcamento.Size = new System.Drawing.Size(118, 20);
@@ -203,7 +208,7 @@
             // 
             this.btnVoltar.Location = new System.Drawing.Point(422, 328);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(90, 30);
             this.btnVoltar.TabIndex = 19;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -211,6 +216,7 @@
             // 
             // txbSituacao
             // 
+            this.txbSituacao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbSituacao.Location = new System.Drawing.Point(473, 232);
             this.txbSituacao.Name = "txbSituacao";
             this.txbSituacao.Size = new System.Drawing.Size(152, 20);
@@ -227,7 +233,7 @@
             this.label9.Text = "Situação:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // fmrOrdens
+            // frmOrdens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -253,7 +259,7 @@
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnSalvar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "fmrOrdens";
+            this.Name = "frmOrdens";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ordem de Serviço";

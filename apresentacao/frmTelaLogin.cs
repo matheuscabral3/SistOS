@@ -19,8 +19,8 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            cadastreSe frmCadCliente = new cadastreSe();
-            frmCadCliente.Show();//Mostrar o formulário de Cadastro, quando clicar no botão
+            frmCadUsuario frmCadUsuario = new frmCadUsuario();
+            frmCadUsuario.Show();//Mostrar o formulário de Cadastro, quando clicar no botão
         }
 
         private void btnSair_Click(object sender, EventArgs e)

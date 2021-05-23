@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtPerfil = new System.Windows.Forms.DataGridView();
             this.btnDesconectar = new System.Windows.Forms.Button();
             this.txbEmail = new System.Windows.Forms.TextBox();
@@ -45,29 +46,37 @@
             this.cboPermissao = new System.Windows.Forms.ComboBox();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.rATBancoDataSet = new WindowsFormsApp1.RATBancoDataSet();
+            this.rATBancoDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtPerfil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rATBancoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rATBancoDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dtPerfil
             // 
             this.dtPerfil.AllowUserToAddRows = false;
             this.dtPerfil.AllowUserToDeleteRows = false;
+            this.dtPerfil.AllowUserToResizeColumns = false;
+            this.dtPerfil.AllowUserToResizeRows = false;
+            this.dtPerfil.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtPerfil.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtPerfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtPerfil.GridColor = System.Drawing.SystemColors.Control;
-            this.dtPerfil.Location = new System.Drawing.Point(208, 215);
+            this.dtPerfil.Location = new System.Drawing.Point(208, 242);
+            this.dtPerfil.MultiSelect = false;
             this.dtPerfil.Name = "dtPerfil";
             this.dtPerfil.ReadOnly = true;
-            this.dtPerfil.Size = new System.Drawing.Size(546, 106);
+            this.dtPerfil.Size = new System.Drawing.Size(530, 110);
             this.dtPerfil.TabIndex = 0;
             this.dtPerfil.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgPerfil_CellContentClick);
             // 
             // btnDesconectar
             // 
-            this.btnDesconectar.Location = new System.Drawing.Point(495, 338);
+            this.btnDesconectar.Location = new System.Drawing.Point(495, 370);
             this.btnDesconectar.Name = "btnDesconectar";
-            this.btnDesconectar.Size = new System.Drawing.Size(126, 25);
+            this.btnDesconectar.Size = new System.Drawing.Size(90, 30);
             this.btnDesconectar.TabIndex = 4;
             this.btnDesconectar.Text = "Voltar";
             this.btnDesconectar.UseVisualStyleBackColor = true;
@@ -75,6 +84,7 @@
             // 
             // txbEmail
             // 
+            this.txbEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEmail.Location = new System.Drawing.Point(208, 63);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(546, 20);
@@ -93,9 +103,9 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(208, 154);
+            this.btnConsultar.Location = new System.Drawing.Point(224, 169);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(96, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(90, 30);
             this.btnConsultar.TabIndex = 10;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -103,9 +113,9 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(286, 339);
+            this.btnLimpar.Location = new System.Drawing.Point(306, 370);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(139, 23);
+            this.btnLimpar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpar.TabIndex = 11;
             this.btnLimpar.Text = "Limpar Tabela";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -115,7 +125,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Castellar", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(58, 92);
+            this.label2.Location = new System.Drawing.Point(65, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 23);
             this.label2.TabIndex = 12;
@@ -124,7 +134,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.gerente;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 129);
+            this.pictureBox1.Location = new System.Drawing.Point(25, 130);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 114);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,6 +143,7 @@
             // 
             // txbSenha
             // 
+            this.txbSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbSenha.Location = new System.Drawing.Point(495, 108);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.Size = new System.Drawing.Size(259, 20);
@@ -169,7 +180,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(205, 196);
+            this.label6.Location = new System.Drawing.Point(205, 216);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 16);
             this.label6.TabIndex = 19;
@@ -177,9 +188,9 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.Location = new System.Drawing.Point(361, 154);
+            this.btnIncluir.Location = new System.Drawing.Point(358, 169);
             this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(96, 23);
+            this.btnIncluir.Size = new System.Drawing.Size(90, 30);
             this.btnIncluir.TabIndex = 21;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = true;
@@ -189,8 +200,8 @@
             // 
             this.cboPermissao.FormattingEnabled = true;
             this.cboPermissao.Items.AddRange(new object[] {
-            "1 - Gerente",
-            "2 - Funcionário"});
+            "1 - GERENTE",
+            "2 - FUNCIONÁRIO"});
             this.cboPermissao.Location = new System.Drawing.Point(208, 108);
             this.cboPermissao.Name = "cboPermissao";
             this.cboPermissao.Size = new System.Drawing.Size(259, 21);
@@ -198,9 +209,9 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(495, 154);
+            this.btnAlterar.Location = new System.Drawing.Point(497, 169);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(96, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(90, 30);
             this.btnAlterar.TabIndex = 25;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -208,20 +219,30 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(620, 154);
+            this.btnExcluir.Location = new System.Drawing.Point(622, 169);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(96, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(90, 30);
             this.btnExcluir.TabIndex = 26;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // rATBancoDataSet
+            // 
+            this.rATBancoDataSet.DataSetName = "RATBancoDataSet";
+            this.rATBancoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rATBancoDataSetBindingSource
+            // 
+            this.rATBancoDataSetBindingSource.DataSource = this.rATBancoDataSet;
+            this.rATBancoDataSetBindingSource.Position = 0;
             // 
             // frmPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(770, 380);
+            this.ClientSize = new System.Drawing.Size(769, 412);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.cboPermissao);
@@ -247,14 +268,14 @@
             this.Load += new System.EventHandler(this.fmrEditarPerfil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtPerfil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rATBancoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rATBancoDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dtPerfil;
         private System.Windows.Forms.Button btnDesconectar;
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.Label label1;
@@ -271,5 +292,8 @@
         private System.Windows.Forms.ComboBox cboPermissao;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.BindingSource rATBancoDataSetBindingSource;
+        private RATBancoDataSet rATBancoDataSet;
+        private System.Windows.Forms.DataGridView dtPerfil;
     }
 }

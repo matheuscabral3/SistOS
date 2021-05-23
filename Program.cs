@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsFormsApp1.apresentacao;
+using WindowsFormsApp1.modelo;
+using WindowsFormsApp1.dal;
 
 namespace WindowsFormsApp1
 {
@@ -14,7 +16,7 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPerfil());
+            Application.Run(new frmCadCliente());
         }
     }
 }

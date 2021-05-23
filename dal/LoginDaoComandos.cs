@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.dal
 {
@@ -20,7 +16,18 @@ namespace WindowsFormsApp1.dal
         {
             try
             {
-                cmd.CommandText = "SELECT * FROM tbUsuarios WHERE email ='" + login + "' AND senha='" + senha + "';";
+
+                if (senha != "")
+                {
+                    //VERIFICAÇÃO DE ACESSO
+                    cmd.CommandText = "SELECT * FROM tbUsuarios WHERE usuarios ='" + login + "' " + "AND senha='" + senha + "';";
+                }
+                else
+                {
+                    //VERIFICAÇÃO DE INCLUSÃO - SELECT > INSERT
+                    cmd.CommandText = "SELECT * FROM tbUsuarios WHERE usuarios ='" + login + "'; ";
+                }
+
                 cmd.Connection = con.conectar();
                 dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
                 if (dr.HasRows)  //se foi encontrado
@@ -45,16 +52,16 @@ namespace WindowsFormsApp1.dal
             if (senha.Equals(confSenha)) //Senha e confSenha precisam ser iguais
             {
                 //LÓGICA para VALIDAR PERMISSÕES e CADASTRAR
-                if (permissao == 1)
+                if (permissao == 1 || permissao == 2)
                 {
                     //CADASTRAR GERENTE
                     try
                     {
-                        cmd.CommandText = "INSERT INTO tbUsuarios(email, senha, permissao) VALUES('" + email + "', '" + senha + "','" + permissao + "');";
+                        cmd.CommandText = "INSERT INTO tbUsuarios(usuarios, senha, permissao) VALUES('" + email + "', '" + senha + "','" + permissao + "');";
 
                         cmd.Connection = con.conectar();
                         cmd.ExecuteNonQuery();
-                        con.desconectar();
+                        //con.desconectar();
                         this.mensagem = "Gerente Cadastrado com Sucesso !";
                         tem = true;
                     }
@@ -74,7 +81,7 @@ namespace WindowsFormsApp1.dal
                         cmd.ExecuteNonQuery(); //Executar Comando
                         con.desconectar(); //Fechar Conexão
                         this.mensagem = "Funcionário Cadastrado com Sucesso !";
-                        tem = true;
+                        //tem = true;
                     }
                     catch (Exception)//Mensagem Erro de Cadastro
                     {
@@ -92,6 +99,13 @@ namespace WindowsFormsApp1.dal
         //MÉTODO EXCLUIR
         public string excluir(string email, string senha)
         {
+            if (email == "" || senha == "")
+            {
+                this.mensagem = "Inserir as informações do usuário para exclusão !";
+                return mensagem;
+            }
+
+
             try
             {
                 cmd.CommandText = "DELETE FROM tbUsuarios WHERE usuarios = '" + email + "' AND senha = '" + senha + "';";
@@ -100,7 +114,7 @@ namespace WindowsFormsApp1.dal
                 cmd.ExecuteNonQuery(); //Executar Comando
                 con.desconectar(); //Fechar Conexão
                 this.mensagem = "Registro Excluido com Sucesso !!";
-                tem = true;
+                //tem = true;
             }
             catch (Exception)//Mensagem Erro de Cadastro
             {
@@ -108,19 +122,18 @@ namespace WindowsFormsApp1.dal
             }
             return mensagem; //Retornar mensagem "Cadastrado com sucesso" ou "Erro de Cadastro"
         }
-        
+
         public string alterar(string email, string senha, int permissao, string senhaAntiga)
         {
             try
             {
 
-                cmd.CommandText = "UPDATE tbUsuarios SET usuarios = '" + email + "', senha = '" + senha + "', permissao = " + permissao + " WHERE senha = '" + senhaAntiga + "';" ;
+                cmd.CommandText = "UPDATE tbUsuarios SET usuarios = '" + email + "', senha = '" + senha + "', permissao = " + permissao + " WHERE senha = '" + senhaAntiga + "';";
 
                 cmd.Connection = con.conectar(); //Abrir conexão
                 cmd.ExecuteNonQuery(); //Executar Comando
                 con.desconectar(); //Fechar Conexão
                 this.mensagem = "Registro Alterado com Sucesso !!";
-                tem = true;
             }
             catch (Exception)//Mensagem Erro de Cadastro
             {

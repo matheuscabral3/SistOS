@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -54,23 +55,25 @@
             // 
             // txbNomeEquip
             // 
+            this.txbNomeEquip.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbNomeEquip.Location = new System.Drawing.Point(12, 37);
             this.txbNomeEquip.Name = "txbNomeEquip";
-            this.txbNomeEquip.Size = new System.Drawing.Size(368, 20);
+            this.txbNomeEquip.Size = new System.Drawing.Size(249, 20);
             this.txbNomeEquip.TabIndex = 1;
             // 
             // txbModelo
             // 
-            this.txbModelo.Location = new System.Drawing.Point(12, 82);
+            this.txbModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txbModelo.Location = new System.Drawing.Point(281, 37);
             this.txbModelo.Name = "txbModelo";
-            this.txbModelo.Size = new System.Drawing.Size(368, 20);
+            this.txbModelo.Size = new System.Drawing.Size(249, 20);
             this.txbModelo.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calisto MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 60);
+            this.label2.Location = new System.Drawing.Point(278, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 2;
@@ -78,16 +81,17 @@
             // 
             // txbPreco
             // 
-            this.txbPreco.Location = new System.Drawing.Point(12, 129);
+            this.txbPreco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txbPreco.Location = new System.Drawing.Point(12, 92);
             this.txbPreco.Name = "txbPreco";
-            this.txbPreco.Size = new System.Drawing.Size(368, 20);
+            this.txbPreco.Size = new System.Drawing.Size(249, 20);
             this.txbPreco.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calisto MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 111);
+            this.label3.Location = new System.Drawing.Point(9, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 15);
             this.label3.TabIndex = 4;
@@ -95,9 +99,9 @@
             // 
             // btnCadEquip
             // 
-            this.btnCadEquip.Location = new System.Drawing.Point(80, 212);
+            this.btnCadEquip.Location = new System.Drawing.Point(116, 132);
             this.btnCadEquip.Name = "btnCadEquip";
-            this.btnCadEquip.Size = new System.Drawing.Size(95, 27);
+            this.btnCadEquip.Size = new System.Drawing.Size(90, 30);
             this.btnCadEquip.TabIndex = 6;
             this.btnCadEquip.Text = "Incluir";
             this.btnCadEquip.UseVisualStyleBackColor = true;
@@ -105,9 +109,9 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(212, 245);
+            this.btnVoltar.Location = new System.Drawing.Point(419, 132);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(95, 28);
+            this.btnVoltar.Size = new System.Drawing.Size(90, 30);
             this.btnVoltar.TabIndex = 7;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -115,16 +119,17 @@
             // 
             // txbEstoqueDisp
             // 
-            this.txbEstoqueDisp.Location = new System.Drawing.Point(12, 176);
+            this.txbEstoqueDisp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txbEstoqueDisp.Location = new System.Drawing.Point(281, 92);
             this.txbEstoqueDisp.Name = "txbEstoqueDisp";
-            this.txbEstoqueDisp.Size = new System.Drawing.Size(368, 20);
+            this.txbEstoqueDisp.Size = new System.Drawing.Size(249, 20);
             this.txbEstoqueDisp.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calisto MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 158);
+            this.label4.Location = new System.Drawing.Point(278, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 15);
             this.label4.TabIndex = 8;
@@ -132,28 +137,38 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(193, 212);
+            this.button1.Location = new System.Drawing.Point(217, 132);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 27);
+            this.button1.Size = new System.Drawing.Size(90, 30);
             this.button1.TabIndex = 10;
             this.button1.Text = "Alterar";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(305, 212);
+            this.button2.Location = new System.Drawing.Point(318, 132);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 27);
+            this.button2.Size = new System.Drawing.Size(90, 30);
             this.button2.TabIndex = 11;
             this.button2.Text = "Excluir";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(15, 132);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(90, 30);
+            this.btnConsultar.TabIndex = 12;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
             // 
             // frmCadEquipamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(439, 284);
+            this.ClientSize = new System.Drawing.Size(769, 381);
+            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txbEstoqueDisp);
@@ -191,5 +206,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnConsultar;
     }
 }
