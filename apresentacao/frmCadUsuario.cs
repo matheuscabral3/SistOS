@@ -21,7 +21,10 @@ namespace WindowsFormsApp1
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            //VALIDAR CONTROLES
             ValidarControles();
+
+
             if (this.mensagem == "")
             {
                 string permissao = cboPermissao.Text.Substring(0, 1);
@@ -64,17 +67,14 @@ namespace WindowsFormsApp1
             {
 
                 this.mensagem = "Preencha todos os campos.";
-                MessageBox.Show(mensagem, "Erro ao Cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if (cboPermissao.SelectedIndex == -1)
             {
                 this.mensagem = "Informe um nível de permissão.";
-                MessageBox.Show(mensagem, "Erro ao Cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

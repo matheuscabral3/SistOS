@@ -157,7 +157,7 @@
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(90, 30);
             this.btnCadastrar.TabIndex = 10;
-            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.Text = "Incluir";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
@@ -189,6 +189,7 @@
             this.btnAlterar.TabIndex = 13;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -198,6 +199,7 @@
             this.btnExcluir.TabIndex = 14;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // dtClientes
             // 
@@ -214,6 +216,7 @@
             this.dtClientes.ReadOnly = true;
             this.dtClientes.Size = new System.Drawing.Size(695, 115);
             this.dtClientes.TabIndex = 15;
+            this.dtClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtClientes_CellContentClick);
             // 
             // btnLimpar
             // 
@@ -296,7 +299,7 @@
             // 
             this.txbCPF.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbCPF.Location = new System.Drawing.Point(424, 140);
-            this.txbCPF.MaxLength = 11;
+            this.txbCPF.MaxLength = 12;
             this.txbCPF.Name = "txbCPF";
             this.txbCPF.Size = new System.Drawing.Size(256, 20);
             this.txbCPF.TabIndex = 25;
@@ -306,7 +309,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(737, 458);
+            this.ClientSize = new System.Drawing.Size(734, 461);
             this.Controls.Add(this.txbCPF);
             this.Controls.Add(this.txbRG);
             this.Controls.Add(this.label9);

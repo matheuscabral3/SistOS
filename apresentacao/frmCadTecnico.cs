@@ -15,7 +15,8 @@ namespace WindowsFormsApp1.apresentacao
         SqlDataReader dr = null;
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
-        public string mensagem;
+        public string mensagem = "";
+        bool tem = false;
 
 
 
@@ -24,77 +25,157 @@ namespace WindowsFormsApp1.apresentacao
             InitializeComponent();
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA INCLUIR
+        //---------------------------------
         private void btnCadastrarTec_Click(object sender, EventArgs e)
         {
-
+            //VALIDAR CONTROLES
             ValidarControles();
+            if (this.mensagem.Length > 0)
+            {
+                MessageBox.Show(mensagem, "Erro ao Cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            //VALIDAR TECNICOS JÁ CADASTRADOS
+            bool validar = verificarTecnico(txbNome.Text);
+            if (validar == true)
+            {
+                MessageBox.Show(mensagem, "Erro ao Cadastrar.", MessageBoxButtons.OK);
+                return;
+            }
+
+
+            cmd.CommandText = "INSERT INTO tbTecnicos(nome_tecnico, telefone, email, cidade, endereco, bairro, cargo, CPF, RG)" +
+            "VALUES(@nome, @telefone, @email, @cidade, @endereco, @bairro, @cargo, @CPF, @RG);";
+
+            cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+            cmd.Parameters.AddWithValue("@telefone", this.txbTEL.Text);
+            cmd.Parameters.AddWithValue("@email", this.txbEmail.Text);
+            cmd.Parameters.AddWithValue("@cidade", this.txbCidade.Text);
+            cmd.Parameters.AddWithValue("@endereco", this.txbEnd.Text);
+            cmd.Parameters.AddWithValue("@bairro", this.txbBairro.Text);
+            cmd.Parameters.AddWithValue("@cargo", this.txbCargo.Text);
+            cmd.Parameters.AddWithValue("@CPF", this.txbCPF.Text);
+            cmd.Parameters.AddWithValue("@RG", this.txbRG.Text);
+
+            //Executar
             try
             {
-                cmd.CommandText = "INSERT INTO tbTecnicos(nome_tecnico, telefone, email, cidade, endereco, bairro, cargo, CPF, RG) " +
-                "VALUES('" + txbNome.Text + "', '" + txbTEL.Text + "', '" + txbEmail.Text + "', '" + txbCidade.Text + "', '" + txbEnd.Text + "', '" + txbBairro.Text + "', '" + txbCargo.Text + "', '" + txbCPF.Text + "', '" + txbRG.Text + "');";
-
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
                 con.desconectar();
-                this.mensagem = "Tecnico Registrado com Sucesso !!";
+                this.mensagem = "Tecnico Cadastrado com Sucesso.";
+                MessageBox.Show(mensagem, "Cadastro Realizado.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                return;
+
             }
             catch (SqlException)
             {
-                this.mensagem = "Erro com o Banco de Dados ao Cadastrar Tecnico !!";
+                this.mensagem = "Erro ao Cadastrar Tecnico no banco, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
+        }
 
-            MessageBox.Show(mensagem, "Incluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //---------------------------------
+        //MÉTODO PARA RESETAR FORMULARIO
+        //---------------------------------
+        private void resetForm()
+        {
+            txbBairro.Text = "";
+            txbCargo.Text = "Tecnico";
+            txbCidade.Text = "";
+            txbCPF.Text = "";
+            txbEmail.Text = "";
+            txbEnd.Text = "";
+            txbNome.Text = "";
+            txbRG.Text = "";
+            txbTEL.Text = "";
             return;
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA VOLTAR
+        //---------------------------------
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-           // th = new Thread(openformMenu);
-           // th.SetApartmentState(ApartmentState.STA);
-           // th.Start();
+            // th = new Thread(openformMenu);
+            // th.SetApartmentState(ApartmentState.STA);
+            // th.Start();
         }
 
+
+        //---------------------------------
+        //MÉTODO LOAD
+        //---------------------------------
         private void fmrCadTecnico_Load(object sender, EventArgs e)
         {
             txbCargo.Text = "Tecnico";
             txbCargo.Enabled = false;
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA VALIDAR CONTROLES
+        //---------------------------------
         private void ValidarControles()
         {
             if (txbNome.Text == "" || txbEmail.Text == "" || txbCidade.Text == "" || txbEnd.Text == "" || txbTEL.Text == "" || txbBairro.Text == "" || txbCargo.Text == "" || txbCPF.Text == "" || txbRG.Text == "")
             {
-                MessageBox.Show("Preencha todos os campos !", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.mensagem = "Preencha todos os campos.";
             }
-        } 
+            return;
+        }
 
         private void openformMenu()
         {
             Application.Run(new frmMenu());
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA XCLUIR
+        //---------------------------------
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+
+            cmd.CommandText = "DELETE FROM tbTecnicos WHERE nome_tecnico = @nome AND RG = @RG;";
+
+            cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+            cmd.Parameters.AddWithValue("@RG", this.txbRG.Text);
+
+            //Executar
             try
             {
-                cmd.CommandText = "DELETE FROM tbTecnicos WHERE nome_tecnico = '" + txbNome.Text + "' AND RG = '" + txbRG.Text + "';";
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+                con.desconectar();
+                this.mensagem = "Tecnico Excluido com Sucesso.";
+                MessageBox.Show(mensagem, "Exclusão Realizada.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                return;
 
-                cmd.Connection = con.conectar(); //Abrir conexão
-                cmd.ExecuteNonQuery(); //Executar Comando
-                con.desconectar(); //Fechar Conexão
-                this.mensagem = "Tecnico Excluido com Sucesso !!";
-                //tem = true;
             }
-            catch (Exception)//Mensagem Erro de Cadastro
+            catch (SqlException)
             {
-                this.mensagem = "Erro ao Excluir usuário no Banco de Dados !";
+                this.mensagem = "Erro ao Excluir Tecnico no banco, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            MessageBox.Show(mensagem, "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;  //Retornar mensagem "Cadastrado com sucesso" ou "Erro de Cadastro"
+
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA CONSULTAR
+        //---------------------------------
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             try
@@ -126,6 +207,10 @@ namespace WindowsFormsApp1.apresentacao
             }
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA CONSULTAR TODOS
+        //---------------------------------
         private void ConsultarTodos()
         {
             if (da != null)
@@ -148,5 +233,77 @@ namespace WindowsFormsApp1.apresentacao
             }
         }
 
+
+
+        //---------------------------------
+        //MÉTODO PARA VERIFICAR CLIENTE EXISTENTE
+        //---------------------------------
+        public bool verificarTecnico(string nome)//Verificar no Banco de Dados, se possui valor com esse parâmetro
+        {
+            try
+            {
+
+                if (nome != "")
+                {
+                    //VERIFICAÇÃO DE INCLUSÃO - SELECT > INSERT
+                    cmd.CommandText = "SELECT * FROM tbTecnicos WHERE nome_tecnico ='" + nome + "'; ";
+                }
+
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
+                if (dr.HasRows)  //se foi encontrado
+                {
+                    this.mensagem = "Este Cliente já existe.";
+                    tem = true;
+                }
+                con.desconectar();
+                dr.Close();
+            }
+            catch (SqlException)
+            {
+                tem = false;
+            }
+
+            return tem;
+        }
+
+
+        //---------------------------------
+        //MÉTODO PARA LIMPAR A TABELA
+        //---------------------------------
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpaDataGrid();
+            resetForm();
+            return;
+        }
+
+        //---------------------------------
+        //MÉTODO PARA LIMPAR A TABELA
+        //---------------------------------
+        private void limpaDataGrid()
+        {
+            if (dtTecnicos.DataSource != null)
+            {
+                int numRows = dtTecnicos.Rows.Count;
+                for (int i = 0; i < numRows; i++)
+                {
+                    try
+                    {
+                        int max = dtTecnicos.Rows.Count - 1;
+                        dtTecnicos.Rows.Remove(dtTecnicos.Rows[max]);
+
+                    }
+                    catch (Exception exe)
+                    {
+                        MessageBox.Show("Erro ao Limpar Tabela" + exe, "WTF", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
+            dtTecnicos.DataSource = null;
+            dtTecnicos.Refresh();
+            return;
+        }
     }
 }

@@ -16,6 +16,9 @@ namespace WindowsFormsApp1.apresentacao
         conexao con = new conexao();
         SqlCommand cmd = new SqlCommand();
         string mensagem = "";
+        bool tem = false;
+
+
         public frmCadEquipamento()
         {
             InitializeComponent();
@@ -23,6 +26,21 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnCadEquip_Click(object sender, EventArgs e)
         {
+            //VALIDAR CONTROLES
+            ValidarControles();
+            if (this.mensagem.Length > 0)
+            {
+                MessageBox.Show(mensagem, "Erro ao Cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //VALIDAR EQUIPAMENTO EXISTENTE
+            bool validar = verificarEquipamento(txbNomeEquip.Text);
+            if (validar == true)
+            {
+                MessageBox.Show(mensagem, "Erro ao Cadastrar.", MessageBoxButtons.OK);
+                return;
+            }
 
 
             float auxiliar = float.Parse(txbPreco.Text);
@@ -40,15 +58,15 @@ namespace WindowsFormsApp1.apresentacao
                 con.desconectar();
                 this.mensagem = "Equipamento Cadastrado com Sucesso !";
                 MessageBox.Show(mensagem, "Cadastro Realizado !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
 
             }
             catch (SqlException)
             {
                 this.mensagem = "Erro ao Cadastrar Equipamento !";
                 MessageBox.Show(mensagem, "Erro Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-
-            //Executar código
 
 
         }
@@ -74,6 +92,38 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
+        //---------------------------------
+        //MÉTODO PARA VERIFICAR EQUIPAMENTO EXISTENTE
+        //---------------------------------
+        public bool verificarEquipamento(string nomeEquip)//Verificar no Banco de Dados, se possui valor com esse parâmetro
+        {
+            try
+            {
+
+                if (nomeEquip != "")
+                {
+                    //VERIFICAÇÃO DE INCLUSÃO - SELECT > INSERT
+                    cmd.CommandText = "SELECT * FROM tbEquipamentos WHERE nome_equip ='" + nomeEquip + "'; ";
+                }
+
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
+                if (dr.HasRows)  //se foi encontrado
+                {
+                    this.mensagem = "Este Cliente já existe.";
+                    tem = true;
+                }
+                con.desconectar();
+                dr.Close();
+            }
+            catch (SqlException)
+            {
+                tem = false;
+            }
+
+            return tem;
+        }
+
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
@@ -92,18 +142,24 @@ namespace WindowsFormsApp1.apresentacao
 
         private void fmrCadEquipamento_Load(object sender, EventArgs e)
         {
-            resetarForm();
+
         }
 
         private void ValidarControles()
         {
             if (txbNomeEquip.Text == "" || txbModelo.Text == "" || txbPreco.Text == "")
             {
-                MessageBox.Show("Preencha todos os campos !", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.mensagem = "Preencha todos os campos.";
+                MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 
-        private void resetarForm()
+
+        //---------------------------------
+        //MÉTODO PARA RESETAR FORMULARIO
+        //---------------------------------
+        private void resetForm()
         {
             txbNomeEquip.Text = "";
             txbModelo.Text = "";
@@ -111,6 +167,10 @@ namespace WindowsFormsApp1.apresentacao
             txbPreco.Text = "";
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA CONSULTAR TODOS
+        //---------------------------------
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             consultarTodos();
@@ -122,5 +182,50 @@ namespace WindowsFormsApp1.apresentacao
             //UPDATE tbEquipamentos SET nome_equip = 'novoHeadSet' WHERE nome_equip = 'Headset';
 
         }
+
+
+        //---------------------------------
+        //MÉTODO PARA LIMPAR A TABELA
+        //---------------------------------
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpaDataGrid();
+            resetForm();
+            return;
+        }
+
+        //---------------------------------
+        //MÉTODO PARA LIMPAR A TABELA
+        //---------------------------------
+        private void limpaDataGrid()
+        {
+            if (dtEquipamentos.DataSource != null)
+            {
+                int numRows = dtEquipamentos.Rows.Count;
+                for (int i = 0; i < numRows; i++)
+                {
+                    try
+                    {
+                        int max = dtEquipamentos.Rows.Count - 1;
+                        dtEquipamentos.Rows.Remove(dtEquipamentos.Rows[max]);
+
+                    }
+                    catch (Exception exe)
+                    {
+                        MessageBox.Show("Erro ao Limpar Tabela" + exe, "WTF", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
+            dtEquipamentos.DataSource = null;
+            dtEquipamentos.Refresh();
+            return;
+        }
+
+
+
+
+
+
     }
 }
