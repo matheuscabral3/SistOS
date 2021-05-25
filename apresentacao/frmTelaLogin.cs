@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using WindowsFormsApp1.modelo;
-using System.Threading;
 
 namespace WindowsFormsApp1.apresentacao
 {
@@ -10,6 +10,7 @@ namespace WindowsFormsApp1.apresentacao
         Thread th;
         controle controle = new controle();
         frmMenu frmMenu = new frmMenu();
+        string mensagem = "";
 
 
         public frmTelaLogin()
@@ -19,8 +20,22 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            frmCadUsuario frmCadUsuario = new frmCadUsuario();
-            frmCadUsuario.Show();//Mostrar o formulário de Cadastro, quando clicar no botão
+
+            //==== MODELO ANTIGO PARA ABRIR O FORMULARIO ======
+            //frmCadUsuario frmCadUsuario = new frmCadUsuario();
+            //frmCadUsuario.Show();//Mostrar o formulário de Cadastro, quando clicar no botão
+
+
+            //==== NOVO MODELO PARA ABRIR O FORMULARIO ======
+            this.Close();
+            th = new Thread(openformMenu);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openformMenu()
+        {
+            Application.Run(new frmCadUsuario());
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -32,40 +47,49 @@ namespace WindowsFormsApp1.apresentacao
         {
 
             ValidarControles();
-
-            controle.acessar(txbLogin.Text, txbSenha.Text); //Enviar informação do Formulário de Login
-            if (controle.mensagem.Equals(""))
+            if (this.mensagem == "")
             {
-                if (controle.tem) //Se todos os comandos forem Executados
+                controle.acessar(txbLogin.Text, txbSenha.Text); //Enviar informação do Formulário de Login
+                if (controle.mensagem.Equals(""))
                 {
-                    MessageBox.Show("Logado com Sucesso !!", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                    th = new Thread(openformMenu);
-                    th.SetApartmentState(ApartmentState.STA);
-                    th.Start();
+                    if (controle.tem) //Se todos os comandos forem Executados
+                    {
+                        this.mensagem = "Logado com sucesso.";
+                        MessageBox.Show(mensagem, "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                        th = new Thread(openformMenu);
+                        th.SetApartmentState(ApartmentState.STA);
+                        th.Start();
+                    }
+                    else//Se não forem, apenas a mensagem de erro.
+                    {
+                        this.mensagem = "Login não encontrado, verifique novamente.";
+                        MessageBox.Show(mensagem, "Erro ao Acessar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                 }
-                else//Se não forem, apenas a mensagem de erro.
+                else
                 {
-                    MessageBox.Show("Login não encontrado, verifique login e senha !!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(controle.mensagem);
                 }
+
             }
             else
             {
-                MessageBox.Show(controle.mensagem);
+                return;
             }
 
         }
 
-        private void openformMenu()
-        {
-            Application.Run(new frmMenu());
-        }
+
 
         private void ValidarControles()
         {
             if (txbLogin.Text == "" || txbSenha.Text == "")
             {
-                MessageBox.Show("Preencha todos os campos !", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.mensagem = "Preencha todos os campos.";
+                MessageBox.Show(mensagem, "Erro ao Acessar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 

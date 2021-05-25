@@ -12,7 +12,6 @@ namespace WindowsFormsApp1
         Thread th;
         controle controle = new controle();
         LoginDaoComandos loginDao = new LoginDaoComandos();
-        frmMenu frmMenu = new frmMenu();
         string mensagem = "";
 
         public frmCadUsuario()
@@ -22,35 +21,60 @@ namespace WindowsFormsApp1
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            //  ValidarControles();
-            string permissao = cboPermissao.Text.Substring(0, 1);
-
-            //VERIFICAR SE JÁ POSSUI UM USUÁRIO CADASTRADO
-            bool usuarioExiste = loginDao.verificarLogin(txbLogin.Text, "");
-            if (usuarioExiste == true)
+            ValidarControles();
+            if (this.mensagem == "")
             {
-                this.mensagem = "Este usuário já existe !";
-                MessageBox.Show(mensagem, "Já Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetForm();
+                string permissao = cboPermissao.Text.Substring(0, 1);
+
+                //VERIFICAR SE JÁ POSSUI UM USUÁRIO CADASTRADO
+                bool usuarioExiste = loginDao.verificarLogin(txbLogin.Text, "");
+                if (usuarioExiste == true)
+                {
+                    this.mensagem = "Este usuário já existe !";
+                    MessageBox.Show(mensagem, "Já Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetForm();
+                    return;
+                }
+
+                //CADASTRAR USUARIO
+                mensagem = controle.cadastrar(txbLogin.Text, txbSenha.Text, txbConfSenha.Text, permissao); //Passar as TextBox's > CONTROLE
+                if (controle.tem)//Mensagem de Sucesso
+                {
+                    MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetForm();
+                    return;
+                }
+                else //Mensagem de Erro
+                {
+                    MessageBox.Show(controle.mensagem);
+                }
+            }
+            else
+            {
                 return;
             }
 
-            //CADASTRAR USUARIO
-            mensagem = controle.cadastrar(txbLogin.Text, txbSenha.Text, txbConfSenha.Text, permissao); //Passar as TextBox's > CONTROLE
-            if (controle.tem)//Mensagem de Sucesso
-            {
-                MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetForm();
-                return;
-            }
-            else //Mensagem de Erro
-            {
-                MessageBox.Show(controle.mensagem);
-            }
+
+
         }
 
         public void ValidarControles()
         {
+            if (txbLogin.TextLength < 0 || txbSenha.TextLength < 0 || txbConfSenha.TextLength < 0)
+            {
+
+                this.mensagem = "Preencha todos os campos.";
+                MessageBox.Show(mensagem, "Erro ao Cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (cboPermissao.SelectedIndex == -1)
+            {
+                this.mensagem = "Informe um nível de permissão.";
+                MessageBox.Show(mensagem, "Erro ao Cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
