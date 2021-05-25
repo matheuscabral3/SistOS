@@ -20,7 +20,8 @@ namespace WindowsFormsApp1.apresentacao
         DataTable dt = new DataTable();
         SqlDataAdapter da = new SqlDataAdapter();
         public string mensagem = "";
-        public string senhaAntiga = "";
+        public string mstrSenhaAntiga = "";
+        public string mstrUsuarioAntigo = "";
         public string permissao = "";
         public int aux;
 
@@ -29,10 +30,19 @@ namespace WindowsFormsApp1.apresentacao
             InitializeComponent();
         }
 
+
+        //---------------------------------
+        //MÉTODO PARA CONSULTAR
+        //---------------------------------
         private void btnConsultar_Click(object sender, EventArgs e)
         {
 
             limpaDatagrid();
+            if (txbEmail.Text == "")
+            {
+                btnConsultarTodos();
+                return;
+            }
 
             try
             {
@@ -48,24 +58,87 @@ namespace WindowsFormsApp1.apresentacao
                     return;
                 }
 
-                if (txbEmail.Text == "" && txbSenha.Text == "")
-                {
-                    btnConsultarTodos();
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao Consultar, Verifique o usuário.");
-                    return;
-                }
             }
             catch
             {
-                MessageBox.Show("Erro ao Preencher a Tabela !");
+                this.mensagem = "Erro ao Consultar Cliente no banco, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
         }
 
+        //---------------------------------
+        //MÉTODO PARA INCLUIR
+        //---------------------------------
+        private void btnIncluir_Click(object sender, EventArgs e)
+        {
+            //VALIDAR CONTROLES
+            validarControles();
+            if (this.mensagem.Length > 0)
+            {
+                MessageBox.Show(mensagem, "Erro ao Cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //VERIFICAR SE U USUÁRIO JÁ EXISTE, ANTES DE REALIZAR A INCLUSÃO
+            bool usuarioExiste = loginDao.verificarLogin(txbEmail.Text, "");//Método verificarLogin da classe LoginDaoComandos
+            if (usuarioExiste == true)
+            {
+                this.mensagem = "Este usuário já existe !";
+                MessageBox.Show(mensagem, "Já Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                limpaDatagrid();
+                return;
+            }
+
+
+            //VALIDAR COMBO.
+            validarCombo();
+            int auxPermissao = aux;
+            string auxSenha = txbSenha.Text;
+            mensagem = loginDao.cadastrar(txbEmail.Text, txbSenha.Text, auxSenha, auxPermissao);
+            MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            resetForm();
+            limpaDatagrid();
+            return;
+        }
+
+        //---------------------------------
+        //MÉTODO PARA ALTERAR
+        //---------------------------------
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (txbEmail.TextLength < 0 || txbSenha.TextLength < 0 || cboPermissao.SelectedIndex < 0)
+            {
+                this.mensagem = "Erro ao alterar, verifique todos os dados.";
+                MessageBox.Show(mensagem, "Erro ao Alterar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                validarCombo();
+                mensagem = loginDao.alterar(txbEmail.Text, txbSenha.Text, aux, mstrUsuarioAntigo, mstrSenhaAntiga);
+                MessageBox.Show(mensagem, "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                limpaDatagrid();
+                return;
+            }
+
+        }
+
+
+        //---------------------------------
+        //MÉTODO PARA EXCLUIR
+        //---------------------------------
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            mensagem = loginDao.excluir(txbEmail.Text, txbSenha.Text);
+            MessageBox.Show(mensagem, "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            limpaDatagrid();
+            resetForm();
+            return;
+        }
 
         //---------------------------------
         //MÉTODO PARA CONSULTAR
@@ -107,7 +180,8 @@ namespace WindowsFormsApp1.apresentacao
                 txbSenha.Text = row.Cells["senha"].Value.ToString();
 
                 //armazena a senha para ser usada como identificado para realizar alterações no usuário.
-                senhaAntiga = txbSenha.Text;
+                mstrUsuarioAntigo = txbEmail.Text;
+                mstrSenhaAntiga = txbSenha.Text;
 
                 //Lógica para alterar a combo.
                 string permissao = row.Cells["permissao"].Value.ToString();
@@ -162,110 +236,27 @@ namespace WindowsFormsApp1.apresentacao
 
 
         //---------------------------------
-        //MÉTODO PARA INCLUIR
-        //---------------------------------
-        private void btnIncluir_Click(object sender, EventArgs e)
-        {
-            //VERIFICAR SE U USUÁRIO JÁ EXISTE, ANTES DE REALIZAR A INCLUSÃO
-            bool usuarioExiste = loginDao.verificarLogin(txbEmail.Text, "");//Método verificarLogin da classe LoginDaoComandos
-            if (usuarioExiste == true)
-            {
-                this.mensagem = "Este usuário já existe !";
-                MessageBox.Show(mensagem, "Já Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                resetForm();
-                return;
-            }
-
-            ValidarForm();
-            MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            resetForm();
-            return;
-        }
-
-
-        //---------------------------------
         //MÉTODO PARA RESETAR
         //---------------------------------
         private void resetForm()
         {
             txbEmail.Text = "";
             txbSenha.Text = "";
-            senhaAntiga = "";
+            mstrSenhaAntiga = "";
             cboPermissao.SelectedIndex = -1;
         }
-
-
 
         //---------------------------------
         //MÉTODO PARA VALIDAR
         //---------------------------------
-        private void ValidarForm()
+        private void validarControles()
         {
-            if (txbEmail.Text == "")
+            if (txbEmail.Text == "" || txbSenha.Text == "" || cboPermissao.SelectedIndex == -1)
             {
-                mensagem = "Um Usuário deve ser selecionado.";
+                mensagem = "Preencha todos os campos.";
                 return;
-            }
-
-            if (txbSenha.Text == "")
-            {
-                mensagem = "Uma senha deve ser selecionada.";
-                return;
-            }
-
-            if (cboPermissao.SelectedIndex == -1)
-            {
-                mensagem = "Uma permissão deve ser selecionada.";
-                return;
-            }
-
-            //VALIDAR COMBO.
-            validarCombo();
-            int auxPermissao = aux;
-            string auxSenha = txbSenha.Text;
-            mensagem = loginDao.cadastrar(txbEmail.Text, txbSenha.Text, auxSenha, auxPermissao);
-        }
-
-
-        //---------------------------------
-        //MÉTODO PARA ALTERAR
-        //---------------------------------
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-            if (txbEmail.TextLength < 0 || txbSenha.TextLength < 0 || cboPermissao.SelectedIndex < 0)
-            {
-                mensagem = "Erro ao alterar, verifique todos os dados.";
-            }
-            else
-            {
-                validarCombo();
-                mensagem = loginDao.alterar(txbEmail.Text, txbSenha.Text, aux, senhaAntiga);
-                MessageBox.Show(mensagem, "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //Preencher a tabela com as novas informações após realizar alteração.
-                btnConsultarTodos();
-                resetForm();
-                return;
-            }
-            if (mensagem != "")
-            {
-                MessageBox.Show(mensagem, "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-
-        //---------------------------------
-        //MÉTODO PARA EXCLUIR
-        //---------------------------------
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            mensagem = loginDao.excluir(txbEmail.Text, txbSenha.Text);
-            MessageBox.Show(mensagem, "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            limpaDatagrid();
-            resetForm();
-            return;
-        }
-
 
         //---------------------------------
         //MÉTODO PARA VALIDAR COMBO
@@ -282,9 +273,8 @@ namespace WindowsFormsApp1.apresentacao
             {
                 aux = 2;
             }
+            return;
         }
-
-
 
         //---------------------------------
         //MÉTODO PARA LIMPAR O DATAGRIDVIEW

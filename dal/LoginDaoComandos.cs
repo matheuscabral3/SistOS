@@ -55,15 +55,23 @@ namespace WindowsFormsApp1.dal
                 if (permissao == 1 || permissao == 2)
                 {
                     //CADASTRAR GERENTE
+                    cmd.CommandText = "INSERT INTO tbUsuarios(usuarios, senha, permissao) " +
+                    "VALUES ( @login, @senha, " + permissao + ");";
+
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+                    // cmd.Parameters.AddWithValue("@permissao", permissao);
+
+
                     try
                     {
-                        cmd.CommandText = "INSERT INTO tbUsuarios(usuarios, senha, permissao) VALUES('" + email + "', '" + senha + "','" + permissao + "');";
+                        //cmd.CommandText = "INSERT INTO tbUsuarios(usuarios, senha, permissao) VALUES('" + email + "', '" + senha + "','" + permissao + "');";
 
                         cmd.Connection = con.conectar();
                         cmd.ExecuteNonQuery();
-                        //con.desconectar();
+                        con.desconectar();
                         this.mensagem = "Gerente Cadastrado com Sucesso !";
-                        tem = true;
+                        // tem = true;
                     }
                     catch (Exception)//Mensagem Erro de Cadastro
                     {
@@ -123,13 +131,21 @@ namespace WindowsFormsApp1.dal
             return mensagem; //Retornar mensagem "Cadastrado com sucesso" ou "Erro de Cadastro"
         }
 
-        public string alterar(string email, string senha, int permissao, string senhaAntiga)
+        public string alterar(string email, string senha, int permissao, string usuarioAntigo, string senhaAntiga)
         {
+            //VALIDAR LÓGICA DE ALTERAÇÃO
+            cmd.CommandText = "UPDATE tbUsuarios SET usuarios = @usuarios, senha = @senha, permissao = " + permissao +
+            " WHERE usuarios = @usuarioAntigo  AND senha = @senhaAntiga;";
+
+            cmd.Parameters.AddWithValue("@usuarios", email);
+            cmd.Parameters.AddWithValue("@senha", senha);
+            cmd.Parameters.AddWithValue("@usuarioAntigo", usuarioAntigo);
+            cmd.Parameters.AddWithValue("@senhaAntiga", senhaAntiga);
+
+            //Executar
             try
             {
-
-                cmd.CommandText = "UPDATE tbUsuarios SET usuarios = '" + email + "', senha = '" + senha + "', permissao = " + permissao + " WHERE senha = '" + senhaAntiga + "';";
-
+                //cmd.CommandText = "UPDATE tbUsuarios SET usuarios = '" + email + "', senha = '" + senha + "', permissao = " + permissao + " WHERE senha = '" + senhaAntiga + "';";
                 cmd.Connection = con.conectar(); //Abrir conexão
                 cmd.ExecuteNonQuery(); //Executar Comando
                 con.desconectar(); //Fechar Conexão
