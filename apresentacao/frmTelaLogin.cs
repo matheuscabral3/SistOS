@@ -28,14 +28,19 @@ namespace WindowsFormsApp1.apresentacao
 
             //==== NOVO MODELO PARA ABRIR O FORMULARIO ======
             this.Close();
-            th = new Thread(openformMenu);
+            th = new Thread(openformCadUsuario);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void openformMenu()
+        private void openformCadUsuario()
         {
             Application.Run(new frmCadUsuario());
+        }
+
+        private void openformMenu()
+        {
+            Application.Run(new frmMenu());
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -47,7 +52,7 @@ namespace WindowsFormsApp1.apresentacao
         {
 
             ValidarControles();
-            if (this.mensagem == "")
+            if (this.mensagem.Length == 0)
             {
                 controle.acessar(txbLogin.Text, txbSenha.Text); //Enviar informação do Formulário de Login
                 if (controle.mensagem.Equals(""))

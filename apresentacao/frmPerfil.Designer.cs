@@ -86,6 +86,7 @@
             // 
             this.txbEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbEmail.Location = new System.Drawing.Point(208, 63);
+            this.txbEmail.MaxLength = 50;
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(546, 20);
             this.txbEmail.TabIndex = 6;
@@ -145,6 +146,7 @@
             // 
             this.txbSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbSenha.Location = new System.Drawing.Point(495, 108);
+            this.txbSenha.MaxLength = 20;
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.Size = new System.Drawing.Size(259, 20);
             this.txbSenha.TabIndex = 14;

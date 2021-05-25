@@ -1,25 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace WindowsFormsApp1.apresentacao
 {
     public partial class frmCadEquipamento : Form
     {
         SqlDataReader dr = null;
+        Thread th;
         DataTable dt = new DataTable();
         SqlDataAdapter da = new SqlDataAdapter();
-        string mensagem = "";
         frmMenu frmMenu = new frmMenu();
         conexao con = new conexao();
         SqlCommand cmd = new SqlCommand();
+        string mensagem = "";
         public frmCadEquipamento()
         {
             InitializeComponent();
@@ -73,6 +69,7 @@ namespace WindowsFormsApp1.apresentacao
             {
                 this.mensagem = "Erro ao Consultar Equipamento!";
                 MessageBox.Show(mensagem, "Erro Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 
@@ -80,8 +77,17 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmMenu.Show();
+            this.Close();
+            //th = new Thread(opennewform);
+            //th.SetApartmentState(ApartmentState.STA);
+            //th.Start();
+        }
+
+        private void opennewform(object obj)
+        {
+
+            // Application.Run(new xxxNomedoFormxxx());
+
         }
 
         private void fmrCadEquipamento_Load(object sender, EventArgs e)

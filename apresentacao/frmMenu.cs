@@ -17,7 +17,7 @@ namespace WindowsFormsApp1.apresentacao
 
         private void exibirPerfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
             th = new Thread(openformperfil);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.apresentacao
 
         private void cadastrarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // this.Close();
             th = new Thread(openformCadCliente);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -33,7 +33,7 @@ namespace WindowsFormsApp1.apresentacao
 
         private void cadastrarTécnicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
             th = new Thread(openformCadTecnico);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1.apresentacao
 
         private void cadastrarEquipamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
             th = new Thread(openformCadEquip);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -49,7 +49,7 @@ namespace WindowsFormsApp1.apresentacao
 
         private void emitirOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // this.Close();
             th = new Thread(openformCadOS);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -68,7 +68,7 @@ namespace WindowsFormsApp1.apresentacao
         private void trocaUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(openformCadUsuario);
+            th = new Thread(openformTelaLogin);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
         }
@@ -98,7 +98,7 @@ namespace WindowsFormsApp1.apresentacao
             Application.Run(new frmOrdens());
         }
 
-        private void openformCadUsuario()
+        private void openformTelaLogin()
         {
             Application.Run(new frmTelaLogin());
         }

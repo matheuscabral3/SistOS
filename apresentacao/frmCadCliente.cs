@@ -57,7 +57,7 @@ namespace WindowsFormsApp1.apresentacao
 
             try
             {
-                string strSQL = "SELECT * FROM tbClientes";
+                string strSQL = "SELECT * FROM tbClientes;";
                 cmd = new SqlCommand(strSQL, con.conectar());
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
@@ -75,9 +75,9 @@ namespace WindowsFormsApp1.apresentacao
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            th = new Thread(openformMenu);
-            th.SetApartmentState(ApartmentState.STA);
-            th.Start();
+           // th = new Thread(openformMenu);
+           // th.SetApartmentState(ApartmentState.STA);
+           // th.Start();
         }
 
         private void openformMenu()

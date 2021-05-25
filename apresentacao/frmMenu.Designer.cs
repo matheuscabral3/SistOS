@@ -34,6 +34,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnConsultar = new System.Windows.Forms.ToolStripMenuItem();
+            this.trocaUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordemServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarTécnicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +42,7 @@
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emitirOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trocaUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -106,6 +106,13 @@
             this.btnConsultar.Text = "Perfil";
             this.btnConsultar.Click += new System.EventHandler(this.exibirPerfilToolStripMenuItem_Click);
             // 
+            // trocaUsuárioToolStripMenuItem
+            // 
+            this.trocaUsuárioToolStripMenuItem.Name = "trocaUsuárioToolStripMenuItem";
+            this.trocaUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trocaUsuárioToolStripMenuItem.Text = "Troca usuário";
+            this.trocaUsuárioToolStripMenuItem.Click += new System.EventHandler(this.trocaUsuárioToolStripMenuItem_Click);
+            // 
             // ordemServiçoToolStripMenuItem
             // 
             this.ordemServiçoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -148,7 +155,7 @@
             // emitirOSToolStripMenuItem
             // 
             this.emitirOSToolStripMenuItem.Name = "emitirOSToolStripMenuItem";
-            this.emitirOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emitirOSToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.emitirOSToolStripMenuItem.Text = "Emitir O.S.";
             this.emitirOSToolStripMenuItem.Click += new System.EventHandler(this.emitirOSToolStripMenuItem_Click);
             // 
@@ -156,6 +163,13 @@
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.sairToolStripMenuItem.Text = "Finalizar";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click_1);
             // 
             // panel3
             // 
@@ -229,20 +243,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click_1);
-            // 
-            // trocaUsuárioToolStripMenuItem
-            // 
-            this.trocaUsuárioToolStripMenuItem.Name = "trocaUsuárioToolStripMenuItem";
-            this.trocaUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.trocaUsuárioToolStripMenuItem.Text = "Troca usuário";
-            this.trocaUsuárioToolStripMenuItem.Click += new System.EventHandler(this.trocaUsuárioToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

@@ -163,7 +163,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(387, 404);
+            this.btnVoltar.Location = new System.Drawing.Point(456, 416);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(90, 30);
             this.btnVoltar.TabIndex = 11;
@@ -217,7 +217,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(238, 404);
+            this.btnLimpar.Location = new System.Drawing.Point(165, 416);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpar.TabIndex = 16;
@@ -306,7 +306,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(737, 446);
+            this.ClientSize = new System.Drawing.Size(737, 458);
             this.Controls.Add(this.txbCPF);
             this.Controls.Add(this.txbRG);
             this.Controls.Add(this.label9);
