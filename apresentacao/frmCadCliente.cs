@@ -68,6 +68,9 @@ namespace WindowsFormsApp1.apresentacao
         //---------------------------------
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+
+            this.mensagem = "";
+
             //Validar
             ValidarControles();
             if (this.mensagem.Length > 0)

@@ -58,7 +58,7 @@
             // 
             // btnCadastrarTec
             // 
-            this.btnCadastrarTec.Location = new System.Drawing.Point(89, 251);
+            this.btnCadastrarTec.Location = new System.Drawing.Point(85, 240);
             this.btnCadastrarTec.Name = "btnCadastrarTec";
             this.btnCadastrarTec.Size = new System.Drawing.Size(90, 30);
             this.btnCadastrarTec.TabIndex = 20;
@@ -213,7 +213,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(255, 251);
+            this.btnConsultar.Location = new System.Drawing.Point(251, 240);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(90, 30);
             this.btnConsultar.TabIndex = 40;
@@ -223,7 +223,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(399, 251);
+            this.btnAlterar.Location = new System.Drawing.Point(395, 240);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(90, 30);
             this.btnAlterar.TabIndex = 41;
@@ -232,7 +232,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(536, 251);
+            this.btnExcluir.Location = new System.Drawing.Point(532, 240);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(90, 30);
             this.btnExcluir.TabIndex = 42;
@@ -260,11 +260,14 @@
             // 
             // dtTecnicos
             // 
-            this.dtTecnicos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtTecnicos.AllowUserToResizeColumns = false;
+            this.dtTecnicos.AllowUserToResizeRows = false;
+            this.dtTecnicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtTecnicos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtTecnicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtTecnicos.Location = new System.Drawing.Point(89, 287);
+            this.dtTecnicos.Location = new System.Drawing.Point(35, 276);
             this.dtTecnicos.Name = "dtTecnicos";
-            this.dtTecnicos.Size = new System.Drawing.Size(537, 121);
+            this.dtTecnicos.Size = new System.Drawing.Size(658, 137);
             this.dtTecnicos.TabIndex = 49;
             // 
             // txbCPF
@@ -299,7 +302,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(734, 461);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.txbTEL);

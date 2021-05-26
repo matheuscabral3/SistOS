@@ -16,6 +16,7 @@ namespace WindowsFormsApp1.apresentacao
         conexao con = new conexao();
         SqlCommand cmd = new SqlCommand();
         string mensagem = "";
+        int auxEstoque;
         bool tem = false;
 
 
@@ -43,9 +44,9 @@ namespace WindowsFormsApp1.apresentacao
             }
 
 
-            float auxiliar = float.Parse(txbPreco.Text);
+            double auxiliar = double.Parse(txbValor.Text);
             cmd.CommandText = "INSERT INTO tbEquipamentos(nome_equip, tipo_aparelho, valor_peca, estoque_disp)" +
-            "VALUES(@nome_equip, @tipo_aparelho,  " + auxiliar + ",  " + Convert.ToInt32(txbEstoqueDisp.Text) + ");";
+            "VALUES(@nome_equip, @tipo_aparelho,  " + auxiliar + ",  " + auxEstoque + ");";
 
             cmd.Parameters.AddWithValue("@nome_equip", this.txbNomeEquip.Text);
             cmd.Parameters.AddWithValue("@tipo_aparelho", this.txbModelo.Text);
@@ -58,6 +59,8 @@ namespace WindowsFormsApp1.apresentacao
                 con.desconectar();
                 this.mensagem = "Equipamento Cadastrado com Sucesso !";
                 MessageBox.Show(mensagem, "Cadastro Realizado !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                limpaDataGrid();
                 return;
 
             }
@@ -110,7 +113,7 @@ namespace WindowsFormsApp1.apresentacao
                 dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
                 if (dr.HasRows)  //se foi encontrado
                 {
-                    this.mensagem = "Este Cliente já existe.";
+                    this.mensagem = "Equipamento já existe.";
                     tem = true;
                 }
                 con.desconectar();
@@ -147,10 +150,10 @@ namespace WindowsFormsApp1.apresentacao
 
         private void ValidarControles()
         {
-            if (txbNomeEquip.Text == "" || txbModelo.Text == "" || txbPreco.Text == "")
+            auxEstoque = Convert.ToInt32(txbEstoqueDisp.Text);
+            if (txbNomeEquip.Text == "" || txbModelo.Text == "" || txbValor.Text == "" || txbEstoqueDisp.Text == "")
             {
                 this.mensagem = "Preencha todos os campos.";
-                MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -164,7 +167,7 @@ namespace WindowsFormsApp1.apresentacao
             txbNomeEquip.Text = "";
             txbModelo.Text = "";
             txbEstoqueDisp.Text = "";
-            txbPreco.Text = "";
+            txbValor.Text = "";
         }
 
 

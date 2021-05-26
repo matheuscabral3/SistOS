@@ -61,7 +61,7 @@
             this.dtPerfil.AllowUserToResizeColumns = false;
             this.dtPerfil.AllowUserToResizeRows = false;
             this.dtPerfil.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtPerfil.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtPerfil.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtPerfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtPerfil.GridColor = System.Drawing.SystemColors.Control;
             this.dtPerfil.Location = new System.Drawing.Point(208, 242);
@@ -243,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(769, 412);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);

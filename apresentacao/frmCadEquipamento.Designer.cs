@@ -32,7 +32,7 @@
             this.txbNomeEquip = new System.Windows.Forms.TextBox();
             this.txbModelo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txbPreco = new System.Windows.Forms.TextBox();
+            this.txbValor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCadEquip = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
@@ -82,13 +82,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Tipo:";
             // 
-            // txbPreco
+            // txbValor
             // 
-            this.txbPreco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txbPreco.Location = new System.Drawing.Point(72, 118);
-            this.txbPreco.Name = "txbPreco";
-            this.txbPreco.Size = new System.Drawing.Size(249, 20);
-            this.txbPreco.TabIndex = 5;
+            this.txbValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txbValor.Location = new System.Drawing.Point(72, 118);
+            this.txbValor.Name = "txbValor";
+            this.txbValor.Size = new System.Drawing.Size(249, 20);
+            this.txbValor.TabIndex = 5;
             // 
             // label3
             // 
@@ -173,7 +173,8 @@
             this.dtEquipamentos.AllowUserToDeleteRows = false;
             this.dtEquipamentos.AllowUserToResizeColumns = false;
             this.dtEquipamentos.AllowUserToResizeRows = false;
-            this.dtEquipamentos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtEquipamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtEquipamentos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtEquipamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtEquipamentos.Location = new System.Drawing.Point(59, 226);
             this.dtEquipamentos.Margin = new System.Windows.Forms.Padding(2);
@@ -199,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(671, 448);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.dtEquipamentos);
@@ -210,7 +211,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnCadEquip);
-            this.Controls.Add(this.txbPreco);
+            this.Controls.Add(this.txbValor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbModelo);
             this.Controls.Add(this.label2);
@@ -220,7 +221,7 @@
             this.Name = "frmCadEquipamento";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastrar Equipamento";
+            this.Text = "Cadastro de Equipamentos";
             this.Load += new System.EventHandler(this.fmrCadEquipamento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtEquipamentos)).EndInit();
             this.ResumeLayout(false);
@@ -234,7 +235,7 @@
         private System.Windows.Forms.TextBox txbNomeEquip;
         private System.Windows.Forms.TextBox txbModelo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txbPreco;
+        private System.Windows.Forms.TextBox txbValor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCadEquip;
         private System.Windows.Forms.Button btnVoltar;

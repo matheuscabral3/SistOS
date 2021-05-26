@@ -55,7 +55,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(92, 259);
+            this.btnCadastrar.Location = new System.Drawing.Point(108, 236);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(90, 30);
             this.btnCadastrar.TabIndex = 1;
@@ -74,7 +74,7 @@
             // txbSenha
             // 
             this.txbSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txbSenha.Location = new System.Drawing.Point(179, 97);
+            this.txbSenha.Location = new System.Drawing.Point(178, 84);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(297, 20);
@@ -84,7 +84,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(175, 76);
+            this.label2.Location = new System.Drawing.Point(174, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 19);
             this.label2.TabIndex = 3;
@@ -94,7 +94,7 @@
             // txbConfSenha
             // 
             this.txbConfSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txbConfSenha.Location = new System.Drawing.Point(179, 153);
+            this.txbConfSenha.Location = new System.Drawing.Point(178, 133);
             this.txbConfSenha.Name = "txbConfSenha";
             this.txbConfSenha.PasswordChar = '*';
             this.txbConfSenha.Size = new System.Drawing.Size(297, 20);
@@ -104,7 +104,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(174, 128);
+            this.label3.Location = new System.Drawing.Point(173, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 19);
             this.label3.TabIndex = 6;
@@ -113,7 +113,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 97);
+            this.pictureBox1.Location = new System.Drawing.Point(22, 84);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 87);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -122,7 +122,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(341, 259);
+            this.btnVoltar.Location = new System.Drawing.Point(333, 236);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(90, 30);
             this.btnVoltar.TabIndex = 9;
@@ -134,7 +134,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(175, 190);
+            this.label4.Location = new System.Drawing.Point(174, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(232, 17);
             this.label4.TabIndex = 10;
@@ -146,18 +146,18 @@
             this.cboPermissao.Items.AddRange(new object[] {
             "1 - GERENTE",
             "2 - FUNCIONÁRIO"});
-            this.cboPermissao.Location = new System.Drawing.Point(178, 210);
+            this.cboPermissao.Location = new System.Drawing.Point(177, 175);
             this.cboPermissao.Name = "cboPermissao";
             this.cboPermissao.Size = new System.Drawing.Size(297, 21);
             this.cboPermissao.TabIndex = 12;
             this.cboPermissao.SelectedIndexChanged += new System.EventHandler(this.cboPermissao_SelectedIndexChanged);
             // 
-            // cadastreSe
+            // frmCadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(534, 311);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(534, 293);
             this.Controls.Add(this.cboPermissao);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnVoltar);
@@ -170,10 +170,10 @@
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "cadastreSe";
+            this.Name = "frmCadUsuario";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro Cliente";
+            this.Text = "Cadastro de Usuários";
             this.Load += new System.EventHandler(this.cadastreSe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -56,26 +56,23 @@ namespace WindowsFormsApp1.dal
                 {
                     //CADASTRAR GERENTE
                     cmd.CommandText = "INSERT INTO tbUsuarios(usuarios, senha, permissao) " +
-                    "VALUES ( @login, @senha, " + permissao + ");";
+                    "VALUES(@email, @senha, " + permissao + ");";
 
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@senha", senha);
                     // cmd.Parameters.AddWithValue("@permissao", permissao);
 
-
                     try
                     {
                         //cmd.CommandText = "INSERT INTO tbUsuarios(usuarios, senha, permissao) VALUES('" + email + "', '" + senha + "','" + permissao + "');";
-
                         cmd.Connection = con.conectar();
                         cmd.ExecuteNonQuery();
                         con.desconectar();
-                        this.mensagem = "Gerente Cadastrado com Sucesso !";
-                        // tem = true;
+                        this.mensagem = "Cadastrado com Sucesso !";
                     }
                     catch (Exception)//Mensagem Erro de Cadastro
                     {
-                        this.mensagem = "Erro ao Cadastrar Gerente.";
+                        this.mensagem = "Erro ao Cadastrar.";
                     }
                 }
                 else if (permissao == 2)
@@ -88,12 +85,12 @@ namespace WindowsFormsApp1.dal
                         cmd.Connection = con.conectar(); //Abrir conexão
                         cmd.ExecuteNonQuery(); //Executar Comando
                         con.desconectar(); //Fechar Conexão
-                        this.mensagem = "Funcionário Cadastrado com Sucesso !";
+                        this.mensagem = "Cadastrado com Sucesso !";
                         //tem = true;
                     }
                     catch (Exception)//Mensagem Erro de Cadastro
                     {
-                        this.mensagem = "Erro ao cadastrar funcionário.";
+                        this.mensagem = "Erro ao cadastrar.";
                     }
                 }
             }

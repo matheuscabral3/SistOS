@@ -21,49 +21,46 @@ namespace WindowsFormsApp1
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            this.mensagem = "";
+
             //VALIDAR CONTROLES
             ValidarControles();
-
-
-            if (this.mensagem == "")
+            if (this.mensagem.Length > 0)
             {
-                string permissao = cboPermissao.Text.Substring(0, 1);
-
-                //VERIFICAR SE JÁ POSSUI UM USUÁRIO CADASTRADO
-                bool usuarioExiste = loginDao.verificarLogin(txbLogin.Text, "");
-                if (usuarioExiste == true)
-                {
-                    this.mensagem = "Este usuário já existe !";
-                    MessageBox.Show(mensagem, "Já Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ResetForm();
-                    return;
-                }
-
-                //CADASTRAR USUARIO
-                mensagem = controle.cadastrar(txbLogin.Text, txbSenha.Text, txbConfSenha.Text, permissao); //Passar as TextBox's > CONTROLE
-                if (controle.tem)//Mensagem de Sucesso
-                {
-                    MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ResetForm();
-                    return;
-                }
-                else //Mensagem de Erro
-                {
-                    MessageBox.Show(controle.mensagem);
-                }
-            }
-            else
-            {
+                MessageBox.Show(mensagem, "Erro ao Cadastrar.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
+            string permissao = cboPermissao.Text.Substring(0, 1);
 
+            //VERIFICAR SE JÁ POSSUI UM USUÁRIO CADASTRADO
+            bool usuarioExiste = loginDao.verificarLogin(txbLogin.Text, "");
+            if (usuarioExiste == true)
+            {
+                this.mensagem = "Este usuário já existe !";
+                MessageBox.Show(mensagem, "Já Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetForm();
+                return;
+            }
+
+            //CADASTRAR USUARIO
+            mensagem = controle.cadastrar(txbLogin.Text, txbSenha.Text, txbConfSenha.Text, permissao); //Passar as TextBox's > CONTROLE
+            if (controle.tem)//Mensagem de Sucesso
+            {
+                MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetForm();
+                return;
+            }
+            else //Mensagem de Erro
+            {
+                MessageBox.Show(controle.mensagem);
+            }
 
         }
 
         public void ValidarControles()
         {
-            if (txbLogin.TextLength < 0 || txbSenha.TextLength < 0 || txbConfSenha.TextLength < 0)
+            if (txbLogin.Text == "" || txbSenha.Text == "" || txbConfSenha.Text == "")
             {
 
                 this.mensagem = "Preencha todos os campos.";

@@ -102,14 +102,14 @@
             // btnConsultar
             // 
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(180, 22);
+            this.btnConsultar.Size = new System.Drawing.Size(144, 22);
             this.btnConsultar.Text = "Perfil";
             this.btnConsultar.Click += new System.EventHandler(this.exibirPerfilToolStripMenuItem_Click);
             // 
             // trocaUsuárioToolStripMenuItem
             // 
             this.trocaUsuárioToolStripMenuItem.Name = "trocaUsuárioToolStripMenuItem";
-            this.trocaUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trocaUsuárioToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.trocaUsuárioToolStripMenuItem.Text = "Troca usuário";
             this.trocaUsuárioToolStripMenuItem.Click += new System.EventHandler(this.trocaUsuárioToolStripMenuItem_Click);
             // 

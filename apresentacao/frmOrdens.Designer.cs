@@ -49,6 +49,7 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.txbSituacao = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // btnSalvar
@@ -69,6 +70,7 @@
             this.btnImprimir.TabIndex = 1;
             this.btnImprimir.Text = "Imprimir O.S";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // label1
             // 
@@ -237,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(639, 374);
             this.Controls.Add(this.txbSituacao);
             this.Controls.Add(this.label9);
@@ -290,5 +292,6 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.TextBox txbSituacao;
         private System.Windows.Forms.Label label9;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

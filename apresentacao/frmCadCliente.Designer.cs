@@ -208,7 +208,7 @@
             this.dtClientes.AllowUserToResizeColumns = false;
             this.dtClientes.AllowUserToResizeRows = false;
             this.dtClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtClientes.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtClientes.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtClientes.Location = new System.Drawing.Point(17, 283);
             this.dtClientes.MultiSelect = false;
@@ -308,7 +308,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(734, 461);
             this.Controls.Add(this.txbCPF);
             this.Controls.Add(this.txbRG);
