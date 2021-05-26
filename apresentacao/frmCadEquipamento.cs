@@ -17,6 +17,7 @@ namespace WindowsFormsApp1.apresentacao
         SqlCommand cmd = new SqlCommand();
         string mensagem = "";
         int auxEstoque;
+        double auxValor;
         bool tem = false;
 
 
@@ -27,6 +28,8 @@ namespace WindowsFormsApp1.apresentacao
 
         private void btnCadEquip_Click(object sender, EventArgs e)
         {
+            this.mensagem = "";
+
             //VALIDAR CONTROLES
             ValidarControles();
             if (this.mensagem.Length > 0)
@@ -39,14 +42,13 @@ namespace WindowsFormsApp1.apresentacao
             bool validar = verificarEquipamento(txbNomeEquip.Text);
             if (validar == true)
             {
-                MessageBox.Show(mensagem, "Erro ao Cadastrar.", MessageBoxButtons.OK);
+                MessageBox.Show(mensagem, "Erro ao Cadastrar, item já existente.", MessageBoxButtons.OK);
                 return;
             }
 
 
-            double auxiliar = double.Parse(txbValor.Text);
             cmd.CommandText = "INSERT INTO tbEquipamentos(nome_equip, tipo_aparelho, valor_peca, estoque_disp)" +
-            "VALUES(@nome_equip, @tipo_aparelho,  " + auxiliar + ",  " + auxEstoque + ");";
+            "VALUES(@nome_equip, @tipo_aparelho,  " + txbValor.Text + ",  " + auxEstoque + ");";
 
             cmd.Parameters.AddWithValue("@nome_equip", this.txbNomeEquip.Text);
             cmd.Parameters.AddWithValue("@tipo_aparelho", this.txbModelo.Text);
@@ -150,12 +152,24 @@ namespace WindowsFormsApp1.apresentacao
 
         private void ValidarControles()
         {
-            auxEstoque = Convert.ToInt32(txbEstoqueDisp.Text);
-            if (txbNomeEquip.Text == "" || txbModelo.Text == "" || txbValor.Text == "" || txbEstoqueDisp.Text == "")
+
+            if (txbNomeEquip.Text == "" || txbModelo.Text == "")
             {
                 this.mensagem = "Preencha todos os campos.";
                 return;
             }
+
+
+            auxValor = Convert.ToDouble(txbValor.Text);
+            auxEstoque = Convert.ToInt32(txbEstoqueDisp.Text);
+
+
+            if (auxValor < 0 || auxEstoque < 0)
+            {
+                this.mensagem = "Verifique os valores.";
+                return;
+            }
+
         }
 
 
