@@ -19,6 +19,8 @@ namespace WindowsFormsApp1.apresentacao
         int auxEstoque;
         double auxValor;
         bool tem = false;
+        string mstrNome = "";
+        string mstrTipo = "";
 
 
         public frmCadEquipamento()
@@ -87,6 +89,7 @@ namespace WindowsFormsApp1.apresentacao
                 da.Fill(dt);
                 dtEquipamentos.DataSource = dt;
                 con.desconectar();
+                configuraDatagrid();
             }
             catch
             {
@@ -239,10 +242,59 @@ namespace WindowsFormsApp1.apresentacao
             return;
         }
 
+        private void dtEquipamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //LÓGICA (Obter o DataGrid > Selecionar a Coluna > Preencher a TextBox)
+            //Obter o conteúdo da Linha selecionado.
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dtEquipamentos.Rows[e.RowIndex];
+                txbNomeEquip.Text = row.Cells["nome_equip"].Value.ToString();
+                txbModelo.Text = row.Cells["tipo_aparelho"].Value.ToString();
+                txbValor.Text = row.Cells["valor_peca"].Value.ToString();
+                txbEstoqueDisp.Text = row.Cells["estoque_disp"].Value.ToString();
 
+            }
+            mstrNome = txbNomeEquip.Text;
+            mstrTipo = txbModelo.Text;
+        }
 
+        private void configuraDatagrid()
+        {
+            dtEquipamentos.Columns[0].Visible = false;
+        }
 
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            // FAZER ALTERAÇÕES NO CÓDIGO ABAIXO PARA A TELA DE CAD EQUIPAMENTO.
+            //if (txbNome.TextLength < 0 || txbRG.TextLength < 0)
+            //{
+            //  this.mensagem = "Erro ao Excluir Cliente no banco, verifique as informações.";
+            //MessageBox.Show(mensagem, "Erro Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // return;
+            //  }
 
+            // cmd.CommandText = "DELETE FROM tbClientes WHERE nome = @nome AND RG = @RG;";
+            //cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+            //cmd.Parameters.AddWithValue("@RG", this.txbRG.Text);
 
+            //try
+            // {
+            // cmd.Connection = con.conectar(); //Abrir conexão
+            // cmd.ExecuteNonQuery(); //Executar Comando
+            // con.desconectar(); //Fechar Conexão
+            //  this.mensagem = "Cliente Excluido com Sucesso !!";
+            //MessageBox.Show(mensagem, "Exclusão Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // resetForm();
+            // limpaDataGrid();
+            // return;
+            //  }
+            // catch (Exception)//Mensagem Erro de Cadastro
+            //  {
+            //  this.mensagem = "Erro ao Excluir Cliente, verifique as informações.";
+            // MessageBox.Show(mensagem, "Erro Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // return;
+            // }
+        }
     }
 }
