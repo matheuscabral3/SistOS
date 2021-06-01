@@ -270,6 +270,7 @@
             this.dtTecnicos.Name = "dtTecnicos";
             this.dtTecnicos.Size = new System.Drawing.Size(658, 137);
             this.dtTecnicos.TabIndex = 49;
+            this.dtTecnicos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTecnicos_CellContentClick);
             // 
             // txbCPF
             // 

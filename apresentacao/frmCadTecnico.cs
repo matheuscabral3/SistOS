@@ -54,7 +54,7 @@ namespace WindowsFormsApp1.apresentacao
             cmd.CommandText = "INSERT INTO tbTecnicos(nome_tecnico, telefone, email, cidade, endereco, bairro, cargo, CPF, RG)" +
             "VALUES(@nome, @telefone, @email, @cidade, @endereco, @bairro, @cargo, @CPF, @RG);";
 
-            cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+            cmd.Parameters.AddWithValue("@nome_tecnico", this.txbNome.Text);
             cmd.Parameters.AddWithValue("@telefone", this.txbTEL.Text);
             cmd.Parameters.AddWithValue("@email", this.txbEmail.Text);
             cmd.Parameters.AddWithValue("@cidade", this.txbCidade.Text);
@@ -73,6 +73,7 @@ namespace WindowsFormsApp1.apresentacao
                 this.mensagem = "Tecnico Cadastrado com Sucesso.";
                 MessageBox.Show(mensagem, "Cadastro Realizado.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 resetForm();
+                limpaDataGrid();
                 return;
 
             }
@@ -146,7 +147,8 @@ namespace WindowsFormsApp1.apresentacao
 
             cmd.CommandText = "DELETE FROM tbTecnicos WHERE nome_tecnico = @nome AND RG = @RG;";
 
-            cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+
+            cmd.Parameters.AddWithValue("@nome_tecnico", this.txbNome.Text);
             cmd.Parameters.AddWithValue("@RG", this.txbRG.Text);
 
             //Executar
@@ -158,6 +160,7 @@ namespace WindowsFormsApp1.apresentacao
                 this.mensagem = "Tecnico Excluido com Sucesso.";
                 MessageBox.Show(mensagem, "Exclusão Realizada.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 resetForm();
+                limpaDataGrid();
                 return;
 
             }
@@ -175,24 +178,23 @@ namespace WindowsFormsApp1.apresentacao
         //---------------------------------
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            if (txbNome.Text == "")
+            {
+                ConsultarTodos();
+                return;
+            }
+
             try
             {
-                if (txbNome.TextLength > 0)
-                {
-                    string strSQL = "SELECT * FROM tbTecnicos WHERE nome_tecnico LIKE '%" + txbNome.Text + "%';";
-                    cmd.Connection = con.conectar();
-                    dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
-                    cmd = new SqlCommand(strSQL, con.conectar());
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
-                    dtTecnicos.DataSource = dt;
-                    dr.Close();
-                }
-                else
-                {
-                    ConsultarTodos();
-                    return;
-                }
+                string strSQL = "SELECT * FROM tbTecnicos WHERE nome_tecnico LIKE '%" + txbNome.Text + "%';";
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
+                cmd = new SqlCommand(strSQL, con.conectar());
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dtTecnicos.DataSource = dt;
+
+                dr.Close();
             }
             catch (SqlException)
             {
@@ -304,9 +306,9 @@ namespace WindowsFormsApp1.apresentacao
             //VALIDAR LÓGICA DE ALTERAÇÃO
             cmd.CommandText = "UPDATE tbTecnicos SET nome_tecnico = @nome_tecnico, telefone = @telefone, email = @email, cidade = @cidade,  endereco = @endereco, " +
             " bairro = @bairro, cargo = @cargo,  CPF = @CPF, RG = @RG " +
-            " WHERE nome = '" + mstrNome + "' AND RG = '" + mstrRG + "';";
+            " WHERE nome_tecnico = '" + mstrNome + "' AND RG = '" + mstrRG + "';";
 
-            cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+            cmd.Parameters.AddWithValue("@nome_tecnico", this.txbNome.Text);
             cmd.Parameters.AddWithValue("@telefone", this.txbTEL.Text);
             cmd.Parameters.AddWithValue("@email", this.txbEmail.Text);
             cmd.Parameters.AddWithValue("@cidade", this.txbCidade.Text);
@@ -324,8 +326,8 @@ namespace WindowsFormsApp1.apresentacao
                 con.desconectar();
                 this.mensagem = "Técnico Alterado com Sucesso.";
                 MessageBox.Show(mensagem, "Alteração Concluída.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                limpaDataGrid();
                 resetForm();
+                limpaDataGrid();
                 return;
 
             }
@@ -335,6 +337,28 @@ namespace WindowsFormsApp1.apresentacao
                 MessageBox.Show(mensagem, "Erro Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+        }
+
+        private void dtTecnicos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //LÓGICA (Obter o DataGrid > Selecionar a Coluna > Preencher a TextBox)
+            //Obter o conteúdo da Linha selecionado.
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dtTecnicos.Rows[e.RowIndex];
+                txbNome.Text = row.Cells["nome_tecnico"].Value.ToString();
+                txbTEL.Text = row.Cells["telefone"].Value.ToString();
+                txbEmail.Text = row.Cells["email"].Value.ToString();
+                txbCidade.Text = row.Cells["cidade"].Value.ToString();
+                txbEnd.Text = row.Cells["endereco"].Value.ToString();
+                txbBairro.Text = row.Cells["bairro"].Value.ToString();
+                txbCargo.Text = row.Cells["cargo"].Value.ToString();
+                txbCPF.Text = row.Cells["CPF"].Value.ToString();
+                txbRG.Text = row.Cells["RG"].Value.ToString();
+            }
+            mstrNome = txbNome.Text;
+            mstrRG = txbRG.Text;
+
         }
     }
 }
