@@ -16,6 +16,8 @@ namespace WindowsFormsApp1.apresentacao
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
         public string mensagem = "";
+        private string mstrNome = "";
+        private string mstrRG = "";
         bool tem = false;
 
 
@@ -26,7 +28,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA INCLUIR
         //---------------------------------
         private void btnCadastrarTec_Click(object sender, EventArgs e)
@@ -84,7 +85,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA RESETAR FORMULARIO
         //---------------------------------
         private void resetForm()
@@ -102,7 +102,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA VOLTAR
         //---------------------------------
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -114,7 +113,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO LOAD
         //---------------------------------
         private void fmrCadTecnico_Load(object sender, EventArgs e)
@@ -124,7 +122,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA VALIDAR CONTROLES
         //---------------------------------
         private void ValidarControles()
@@ -142,8 +139,7 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
-        //MÉTODO PARA XCLUIR
+        //MÉTODO PARA EXCLUIR
         //---------------------------------
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -175,7 +171,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA CONSULTAR
         //---------------------------------
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -184,7 +179,7 @@ namespace WindowsFormsApp1.apresentacao
             {
                 if (txbNome.TextLength > 0)
                 {
-                    string strSQL = "SELECT * FROM tbTecnicos WHERE nome_tecnico ='" + txbNome.Text + "';";
+                    string strSQL = "SELECT * FROM tbTecnicos WHERE nome_tecnico LIKE '%" + txbNome.Text + "%';";
                     cmd.Connection = con.conectar();
                     dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
                     cmd = new SqlCommand(strSQL, con.conectar());
@@ -210,7 +205,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA CONSULTAR TODOS
         //---------------------------------
         private void ConsultarTodos()
@@ -237,7 +231,6 @@ namespace WindowsFormsApp1.apresentacao
 
 
 
-        //---------------------------------
         //MÉTODO PARA VERIFICAR CLIENTE EXISTENTE
         //---------------------------------
         public bool verificarTecnico(string nome)//Verificar no Banco de Dados, se possui valor com esse parâmetro
@@ -270,7 +263,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA LIMPAR A TABELA
         //---------------------------------
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -280,7 +272,6 @@ namespace WindowsFormsApp1.apresentacao
             return;
         }
 
-        //---------------------------------
         //MÉTODO PARA LIMPAR A TABELA
         //---------------------------------
         private void limpaDataGrid()
@@ -306,6 +297,44 @@ namespace WindowsFormsApp1.apresentacao
             dtTecnicos.DataSource = null;
             dtTecnicos.Refresh();
             return;
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            //VALIDAR LÓGICA DE ALTERAÇÃO
+            cmd.CommandText = "UPDATE tbTecnicos SET nome_tecnico = @nome_tecnico, telefone = @telefone, email = @email, cidade = @cidade,  endereco = @endereco, " +
+            " bairro = @bairro, cargo = @cargo,  CPF = @CPF, RG = @RG " +
+            " WHERE nome = '" + mstrNome + "' AND RG = '" + mstrRG + "';";
+
+            cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+            cmd.Parameters.AddWithValue("@telefone", this.txbTEL.Text);
+            cmd.Parameters.AddWithValue("@email", this.txbEmail.Text);
+            cmd.Parameters.AddWithValue("@cidade", this.txbCidade.Text);
+            cmd.Parameters.AddWithValue("@endereco", this.txbEnd.Text);
+            cmd.Parameters.AddWithValue("@bairro", this.txbBairro.Text);
+            cmd.Parameters.AddWithValue("@cargo", this.txbCargo.Text);
+            cmd.Parameters.AddWithValue("@CPF", this.txbCPF.Text);
+            cmd.Parameters.AddWithValue("@RG", this.txbRG.Text);
+
+            //Executar
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+                con.desconectar();
+                this.mensagem = "Técnico Alterado com Sucesso.";
+                MessageBox.Show(mensagem, "Alteração Concluída.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpaDataGrid();
+                resetForm();
+                return;
+
+            }
+            catch (SqlException)
+            {
+                this.mensagem = "Erro ao Alterar Técnico no banco, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
     }
 }
