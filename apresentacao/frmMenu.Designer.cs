@@ -41,7 +41,6 @@
             this.cadastrarEquipamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emitirOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -82,7 +81,6 @@
             this.perfilToolStripMenuItem,
             this.ordemServiçoToolStripMenuItem,
             this.consultaToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -158,11 +156,6 @@
             this.emitirOSToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.emitirOSToolStripMenuItem.Text = "Emitir O.S.";
             this.emitirOSToolStripMenuItem.Click += new System.EventHandler(this.emitirOSToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
             // 
             // sairToolStripMenuItem
             // 
@@ -288,7 +281,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrarEquipamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emitirOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;

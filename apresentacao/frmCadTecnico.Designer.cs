@@ -229,6 +229,7 @@
             this.btnAlterar.TabIndex = 41;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -269,6 +270,7 @@
             this.dtTecnicos.Name = "dtTecnicos";
             this.dtTecnicos.Size = new System.Drawing.Size(658, 137);
             this.dtTecnicos.TabIndex = 49;
+            this.dtTecnicos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTecnicos_CellContentClick);
             // 
             // txbCPF
             // 

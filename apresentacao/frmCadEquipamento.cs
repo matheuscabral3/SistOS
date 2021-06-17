@@ -17,7 +17,10 @@ namespace WindowsFormsApp1.apresentacao
         SqlCommand cmd = new SqlCommand();
         string mensagem = "";
         int auxEstoque;
+
         double auxValor;
+        decimal auxValorDecimal;
+
         bool tem = false;
         string mstrNome = "";
         string mstrTipo = "";
@@ -50,7 +53,7 @@ namespace WindowsFormsApp1.apresentacao
 
 
             cmd.CommandText = "INSERT INTO tbEquipamentos(nome_equip, tipo_aparelho, valor_peca, estoque_disp)" +
-            "VALUES(@nome_equip, @tipo_aparelho,  " + txbValor.Text + ",  " + auxEstoque + ");";
+            "VALUES(@nome_equip, @tipo_aparelho,  " + auxValor + ",  " + auxEstoque + ");";
 
             cmd.Parameters.AddWithValue("@nome_equip", this.txbNomeEquip.Text);
             cmd.Parameters.AddWithValue("@tipo_aparelho", this.txbModelo.Text);
@@ -162,8 +165,9 @@ namespace WindowsFormsApp1.apresentacao
                 return;
             }
 
-
             auxValor = Convert.ToDouble(txbValor.Text);
+            auxValorDecimal = Convert.ToDecimal(txbValor.Text);
+
             auxEstoque = Convert.ToInt32(txbEstoqueDisp.Text);
 
 
@@ -193,18 +197,32 @@ namespace WindowsFormsApp1.apresentacao
         //---------------------------------
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            consultarTodos();
-            return;
+            limpaDataGrid();
+            if (txbNomeEquip.Text == "")
+            {
+                consultarTodos();
+                return;
+            }
+
+            try
+            {
+                string strSQL = "SELECT * FROM tbEquipamentos " +
+                    "WHERE nome_equip LIKE '%" + txbNomeEquip.Text + "%';";
+                cmd = new SqlCommand(strSQL, con.conectar());
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dtEquipamentos.DataSource = dt;
+                con.desconectar();
+                return;
+            }
+            catch (SqlException)
+            {
+                this.mensagem = "Erro ao Consultar Equipamento no banco, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //UPDATE tbEquipamentos SET nome_equip = 'novoHeadSet' WHERE nome_equip = 'Headset';
-
-        }
-
-
-        //---------------------------------
         //MÉTODO PARA LIMPAR A TABELA
         //---------------------------------
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -214,7 +232,6 @@ namespace WindowsFormsApp1.apresentacao
             return;
         }
 
-        //---------------------------------
         //MÉTODO PARA LIMPAR A TABELA
         //---------------------------------
         private void limpaDataGrid()
@@ -267,34 +284,85 @@ namespace WindowsFormsApp1.apresentacao
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             // FAZER ALTERAÇÕES NO CÓDIGO ABAIXO PARA A TELA DE CAD EQUIPAMENTO.
-            //if (txbNome.TextLength < 0 || txbRG.TextLength < 0)
-            //{
-            //  this.mensagem = "Erro ao Excluir Cliente no banco, verifique as informações.";
-            //MessageBox.Show(mensagem, "Erro Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // return;
-            //  }
+            if (txbNomeEquip.TextLength < 0)
+            {
+                this.mensagem = "Erro ao Excluir Equipamento no banco, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            // cmd.CommandText = "DELETE FROM tbClientes WHERE nome = @nome AND RG = @RG;";
-            //cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
-            //cmd.Parameters.AddWithValue("@RG", this.txbRG.Text);
+            cmd.CommandText = "DELETE FROM tbEquipamentos WHERE nome_equip = @nome_equip AND tipo_aparelho = @tipo_aparelho;";
+            cmd.Parameters.AddWithValue("@nome_equip", this.txbNomeEquip.Text);
+            cmd.Parameters.AddWithValue("@tipo_aparelho", this.txbModelo.Text);
 
-            //try
-            // {
-            // cmd.Connection = con.conectar(); //Abrir conexão
-            // cmd.ExecuteNonQuery(); //Executar Comando
-            // con.desconectar(); //Fechar Conexão
-            //  this.mensagem = "Cliente Excluido com Sucesso !!";
-            //MessageBox.Show(mensagem, "Exclusão Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // resetForm();
-            // limpaDataGrid();
-            // return;
-            //  }
-            // catch (Exception)//Mensagem Erro de Cadastro
-            //  {
-            //  this.mensagem = "Erro ao Excluir Cliente, verifique as informações.";
-            // MessageBox.Show(mensagem, "Erro Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // return;
-            // }
+            try
+            {
+                cmd.Connection = con.conectar(); //Abrir conexão
+                cmd.ExecuteNonQuery(); //Executar Comando
+                con.desconectar(); //Fechar Conexão
+                this.mensagem = "Equipamento Excluido com Sucesso !!";
+                MessageBox.Show(mensagem, "Exclusão Concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                limpaDataGrid();
+                return;
+            }
+            catch (Exception)//Mensagem Erro de Cadastro
+            {
+                this.mensagem = "Erro ao Excluir Equipamento, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+
+        private void btnAlterar_Click_1(object sender, EventArgs e)
+        {
+            //VALIDAR LÓGICA DE ALTERAÇÃO
+            ValidarControles();
+
+            cmd.CommandText = "UPDATE tbEquipamentos SET nome_equip = @nome_equip, tipo_aparelho = @tipo_aparelho, valor_peca = " + auxValorDecimal + " , estoque_disp =" + auxEstoque +
+           " WHERE nome_equip = '" + mstrNome + "' AND tipo_aparelho = '" + mstrTipo + "';";
+
+            string updateSQL = cmd.CommandText;
+
+            if (auxValorDecimal > 100 && auxValorDecimal < 1000) //Verificar a conversão do valor
+            {
+                updateSQL = updateSQL.Remove(100, 1).Insert(100, ".");
+            }
+            if (auxValorDecimal < 100)
+            {
+                updateSQL = updateSQL.Remove(99, 1).Insert(99, ".");
+            }
+            if (auxValorDecimal > 1000)
+            {
+                updateSQL = updateSQL.Remove(101, 1).Insert(101, ".");
+            }
+
+            cmd.CommandText = updateSQL;
+
+            cmd.Parameters.AddWithValue("@nome_equip", this.txbNomeEquip.Text);
+            cmd.Parameters.AddWithValue("@tipo_aparelho", this.txbModelo.Text);
+            //cmd.Parameters.AddWithValue("@valor_peca", this.txbValor.Text);
+            //cmd.Parameters.AddWithValue("@estoque_disp", this.txbEstoqueDisp.Text);
+
+            //Executar
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+                con.desconectar();
+                this.mensagem = "Equipamento Alterado com Sucesso.";
+                MessageBox.Show(mensagem, "Alteração Concluída.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                limpaDataGrid();
+                return;
+
+            }
+            catch (SqlException)
+            {
+                this.mensagem = "Erro ao Alterar Equipamento no banco, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
     }
 }

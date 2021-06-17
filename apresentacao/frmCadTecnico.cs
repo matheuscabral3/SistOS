@@ -16,6 +16,8 @@ namespace WindowsFormsApp1.apresentacao
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
         public string mensagem = "";
+        private string mstrNome = "";
+        private string mstrRG = "";
         bool tem = false;
 
 
@@ -26,7 +28,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA INCLUIR
         //---------------------------------
         private void btnCadastrarTec_Click(object sender, EventArgs e)
@@ -53,7 +54,7 @@ namespace WindowsFormsApp1.apresentacao
             cmd.CommandText = "INSERT INTO tbTecnicos(nome_tecnico, telefone, email, cidade, endereco, bairro, cargo, CPF, RG)" +
             "VALUES(@nome, @telefone, @email, @cidade, @endereco, @bairro, @cargo, @CPF, @RG);";
 
-            cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+            cmd.Parameters.AddWithValue("@nome_tecnico", this.txbNome.Text);
             cmd.Parameters.AddWithValue("@telefone", this.txbTEL.Text);
             cmd.Parameters.AddWithValue("@email", this.txbEmail.Text);
             cmd.Parameters.AddWithValue("@cidade", this.txbCidade.Text);
@@ -72,6 +73,7 @@ namespace WindowsFormsApp1.apresentacao
                 this.mensagem = "Tecnico Cadastrado com Sucesso.";
                 MessageBox.Show(mensagem, "Cadastro Realizado.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 resetForm();
+                limpaDataGrid();
                 return;
 
             }
@@ -84,7 +86,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA RESETAR FORMULARIO
         //---------------------------------
         private void resetForm()
@@ -102,7 +103,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA VOLTAR
         //---------------------------------
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -114,7 +114,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO LOAD
         //---------------------------------
         private void fmrCadTecnico_Load(object sender, EventArgs e)
@@ -124,7 +123,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA VALIDAR CONTROLES
         //---------------------------------
         private void ValidarControles()
@@ -142,15 +140,15 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
-        //MÉTODO PARA XCLUIR
+        //MÉTODO PARA EXCLUIR
         //---------------------------------
         private void btnExcluir_Click(object sender, EventArgs e)
         {
 
             cmd.CommandText = "DELETE FROM tbTecnicos WHERE nome_tecnico = @nome AND RG = @RG;";
 
-            cmd.Parameters.AddWithValue("@nome", this.txbNome.Text);
+
+            cmd.Parameters.AddWithValue("@nome_tecnico", this.txbNome.Text);
             cmd.Parameters.AddWithValue("@RG", this.txbRG.Text);
 
             //Executar
@@ -162,6 +160,7 @@ namespace WindowsFormsApp1.apresentacao
                 this.mensagem = "Tecnico Excluido com Sucesso.";
                 MessageBox.Show(mensagem, "Exclusão Realizada.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 resetForm();
+                limpaDataGrid();
                 return;
 
             }
@@ -175,29 +174,27 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA CONSULTAR
         //---------------------------------
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            if (txbNome.Text == "")
+            {
+                ConsultarTodos();
+                return;
+            }
+
             try
             {
-                if (txbNome.TextLength > 0)
-                {
-                    string strSQL = "SELECT * FROM tbTecnicos WHERE nome_tecnico ='" + txbNome.Text + "';";
-                    cmd.Connection = con.conectar();
-                    dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
-                    cmd = new SqlCommand(strSQL, con.conectar());
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
-                    dtTecnicos.DataSource = dt;
-                    dr.Close();
-                }
-                else
-                {
-                    ConsultarTodos();
-                    return;
-                }
+                string strSQL = "SELECT * FROM tbTecnicos WHERE nome_tecnico LIKE '%" + txbNome.Text + "%';";
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();  //Pegar a informação e guardar em algum lugar ? ==> dr;
+                cmd = new SqlCommand(strSQL, con.conectar());
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dtTecnicos.DataSource = dt;
+
+                dr.Close();
             }
             catch (SqlException)
             {
@@ -210,7 +207,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA CONSULTAR TODOS
         //---------------------------------
         private void ConsultarTodos()
@@ -237,7 +233,6 @@ namespace WindowsFormsApp1.apresentacao
 
 
 
-        //---------------------------------
         //MÉTODO PARA VERIFICAR CLIENTE EXISTENTE
         //---------------------------------
         public bool verificarTecnico(string nome)//Verificar no Banco de Dados, se possui valor com esse parâmetro
@@ -270,7 +265,6 @@ namespace WindowsFormsApp1.apresentacao
         }
 
 
-        //---------------------------------
         //MÉTODO PARA LIMPAR A TABELA
         //---------------------------------
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -280,7 +274,6 @@ namespace WindowsFormsApp1.apresentacao
             return;
         }
 
-        //---------------------------------
         //MÉTODO PARA LIMPAR A TABELA
         //---------------------------------
         private void limpaDataGrid()
@@ -306,6 +299,66 @@ namespace WindowsFormsApp1.apresentacao
             dtTecnicos.DataSource = null;
             dtTecnicos.Refresh();
             return;
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            //VALIDAR LÓGICA DE ALTERAÇÃO
+            cmd.CommandText = "UPDATE tbTecnicos SET nome_tecnico = @nome_tecnico, telefone = @telefone, email = @email, cidade = @cidade,  endereco = @endereco, " +
+            " bairro = @bairro, cargo = @cargo,  CPF = @CPF, RG = @RG " +
+            " WHERE nome_tecnico = '" + mstrNome + "' AND RG = '" + mstrRG + "';";
+
+            cmd.Parameters.AddWithValue("@nome_tecnico", this.txbNome.Text);
+            cmd.Parameters.AddWithValue("@telefone", this.txbTEL.Text);
+            cmd.Parameters.AddWithValue("@email", this.txbEmail.Text);
+            cmd.Parameters.AddWithValue("@cidade", this.txbCidade.Text);
+            cmd.Parameters.AddWithValue("@endereco", this.txbEnd.Text);
+            cmd.Parameters.AddWithValue("@bairro", this.txbBairro.Text);
+            cmd.Parameters.AddWithValue("@cargo", this.txbCargo.Text);
+            cmd.Parameters.AddWithValue("@CPF", this.txbCPF.Text);
+            cmd.Parameters.AddWithValue("@RG", this.txbRG.Text);
+
+            //Executar
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+                con.desconectar();
+                this.mensagem = "Técnico Alterado com Sucesso.";
+                MessageBox.Show(mensagem, "Alteração Concluída.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetForm();
+                limpaDataGrid();
+                return;
+
+            }
+            catch (SqlException)
+            {
+                this.mensagem = "Erro ao Alterar Técnico no banco, verifique as informações.";
+                MessageBox.Show(mensagem, "Erro Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+
+        private void dtTecnicos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //LÓGICA (Obter o DataGrid > Selecionar a Coluna > Preencher a TextBox)
+            //Obter o conteúdo da Linha selecionado.
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dtTecnicos.Rows[e.RowIndex];
+                txbNome.Text = row.Cells["nome_tecnico"].Value.ToString();
+                txbTEL.Text = row.Cells["telefone"].Value.ToString();
+                txbEmail.Text = row.Cells["email"].Value.ToString();
+                txbCidade.Text = row.Cells["cidade"].Value.ToString();
+                txbEnd.Text = row.Cells["endereco"].Value.ToString();
+                txbBairro.Text = row.Cells["bairro"].Value.ToString();
+                txbCargo.Text = row.Cells["cargo"].Value.ToString();
+                txbCPF.Text = row.Cells["CPF"].Value.ToString();
+                txbRG.Text = row.Cells["RG"].Value.ToString();
+            }
+            mstrNome = txbNome.Text;
+            mstrRG = txbRG.Text;
+
         }
     }
 }

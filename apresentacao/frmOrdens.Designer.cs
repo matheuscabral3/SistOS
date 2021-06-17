@@ -183,6 +183,7 @@
             // 
             this.txbOrcamento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbOrcamento.Location = new System.Drawing.Point(100, 232);
+            this.txbOrcamento.MaxLength = 10;
             this.txbOrcamento.Name = "txbOrcamento";
             this.txbOrcamento.Size = new System.Drawing.Size(118, 20);
             this.txbOrcamento.TabIndex = 16;
